@@ -33,3 +33,11 @@ func _on_Timer_timeout():
 	group = groups[step]
 	set_group_visibility(group, true)
 
+
+
+func _on_NewGameTextureButton_pressed():
+	get_tree().change_scene("res://scenes/ending-win/ending-win.tscn")
+
+
+func _on_SettingsTextureButton_pressed():
+	get_tree().change_scene("res://scenes/ending-broke/ending-broke.tscn")
