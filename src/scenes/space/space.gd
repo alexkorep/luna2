@@ -6,12 +6,20 @@ var TARGET_BOCK_ID = 5
 var Planet = load("res://scenes/space/planet.tscn")
 
 func _ready():
-	$ParallaxBackground/ParallaxLayer.motion_scale = Vector2(0.9, 0.9)
+	if not Engine.editor_hint:
+		adjust_parallax_scale(Vector2(0.5, 0.5))
 	
 func _process(_delta):
 	if Engine.editor_hint:
-		print("Editor hint")
-	sync_parallax_objects()
+		sync_parallax_objects()
+
+func adjust_parallax_scale(new_scale: Vector2):
+	var Planets = $ParallaxBackground/ParallaxLayer/Planets
+	var ParallaxLayer = $ParallaxBackground/ParallaxLayer
+	var old_scale = ParallaxLayer.motion_scale
+	for planet in Planets.get_children():
+		planet.position = planet.position*new_scale/old_scale
+	ParallaxLayer.motion_scale = new_scale
 
 func get_tiles_with_id(id: int) -> Array:
 	var Tileset = $Tileset
@@ -44,7 +52,7 @@ func sync_parallax_objects():
 	# and add it to the parallax layer
 	for block in target_blocks:
 		# Tileset.cell_size/4 is actually /2 and adjust by parallellax scale
-		var planet_position = Tileset.map_to_world(block)*ParallaxLayer.motion_scale + Tileset.cell_size/4
+		var planet_position = Tileset.map_to_world(block)*ParallaxLayer.motion_scale + Tileset.cell_size/2
 		var existing_planet = find_planet_at_position(planet_position)
 		if existing_planet != null:
 			existing_planet.dirty = false
@@ -52,6 +60,7 @@ func sync_parallax_objects():
 			var planet = Planet.instance()
 			planet.position = planet_position
 			Planets.add_child(planet)
+			planet.set_owner(get_tree().edited_scene_root)
 	
 	# Remove all planets that are dirty
 	for planet in Planets.get_children():
