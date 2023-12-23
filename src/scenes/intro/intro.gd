@@ -36,7 +36,7 @@ func _on_Timer_timeout():
 
 
 func _on_NewGameTextureButton_pressed():
-	get_tree().change_scene("res://scenes/ending-win/ending-win.tscn")
+	get_tree().change_scene("res://scenes/space/space.tscn")
 
 
 func _on_SettingsTextureButton_pressed():
