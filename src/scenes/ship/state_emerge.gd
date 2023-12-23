@@ -8,14 +8,14 @@ func enter(_msg := {}) -> void:
 
 	# We must declare all the properties we access through `owner` in the `Player.gd` script.
 	owner.scale = Vector2.ZERO
-	owner.rotation_degrees = 0
+	owner.rotation_degrees = 180
 	# Add a tween to smoothly scale the player to its normal size.
 	var tween = Tween.new()
 	owner.add_child(tween)  # Add the Tween to the scene tree
 	var normal_size = Vector2(1, 1)  # Replace with your normal size if different
 	var duration = 2.0  # Duration of the scaling animation in seconds
 	tween.interpolate_property(owner, "scale", Vector2.ZERO, normal_size, duration, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
-	tween.interpolate_property(owner, "rotation_degrees", owner.rotation_degrees, 180, duration, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	tween.interpolate_property(owner, "rotation_degrees", owner.rotation_degrees, 0, duration, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	tween.connect("tween_completed", self, "_on_tween_completed")
 	tween.start()  # Start the Tween
 

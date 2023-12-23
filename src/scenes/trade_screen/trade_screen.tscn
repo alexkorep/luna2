@@ -40,53 +40,52 @@ margin_right = 296.0
 margin_bottom = 655.0
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer/MainVBoxContainer"]
+[node name="FundsRow" type="HBoxContainer" parent="NinePatchRect/MarginContainer/MainVBoxContainer"]
 margin_right = 296.0
 margin_bottom = 32.0
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/MainVBoxContainer/FundsRow"]
+margin_right = 42.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+text = "Funds:"
+valign = 1
+
+[node name="FundsLabel" type="Label" parent="NinePatchRect/MarginContainer/MainVBoxContainer/FundsRow"]
+margin_left = 46.0
+margin_right = 86.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+text = "100 cr"
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer/MainVBoxContainer"]
+margin_top = 36.0
+margin_right = 296.0
+margin_bottom = 68.0
 rect_min_size = Vector2( 0, 32 )
 
 [node name="ProductLabel" type="Label" parent="NinePatchRect/MarginContainer/MainVBoxContainer/HBoxContainer"]
-margin_right = 49.0
+margin_right = 71.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 text = "Product"
-align = 1
 valign = 1
 
-[node name="UnitLabel" type="Label" parent="NinePatchRect/MarginContainer/MainVBoxContainer/HBoxContainer"]
-margin_left = 53.0
-margin_right = 98.0
+[node name="PriceLabel" type="Label" parent="NinePatchRect/MarginContainer/MainVBoxContainer/HBoxContainer"]
+margin_left = 75.0
+margin_right = 146.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
-text = "Unit"
-align = 1
-valign = 1
-
-[node name="SellLabel" type="Label" parent="NinePatchRect/MarginContainer/MainVBoxContainer/HBoxContainer"]
-margin_left = 102.0
-margin_right = 147.0
-margin_bottom = 32.0
-size_flags_horizontal = 3
-size_flags_vertical = 5
-text = "Sell"
-align = 1
-valign = 1
-
-[node name="BuyLabel" type="Label" parent="NinePatchRect/MarginContainer/MainVBoxContainer/HBoxContainer"]
-margin_left = 151.0
-margin_right = 197.0
-margin_bottom = 32.0
-size_flags_horizontal = 3
-size_flags_vertical = 5
-text = "Buy"
+text = "Price"
 align = 1
 valign = 1
 
 [node name="QtyLabel" type="Label" parent="NinePatchRect/MarginContainer/MainVBoxContainer/HBoxContainer"]
-margin_left = 201.0
-margin_right = 246.0
+margin_left = 150.0
+margin_right = 221.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
@@ -95,7 +94,7 @@ align = 1
 valign = 1
 
 [node name="HoldLabel" type="Label" parent="NinePatchRect/MarginContainer/MainVBoxContainer/HBoxContainer"]
-margin_left = 250.0
+margin_left = 225.0
 margin_right = 296.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
@@ -105,26 +104,28 @@ align = 1
 valign = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/MarginContainer/MainVBoxContainer"]
-margin_top = 36.0
+margin_top = 72.0
 margin_right = 296.0
 margin_bottom = 587.0
 mouse_filter = 1
 size_flags_vertical = 3
 
 [node name="ProductsVBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer/MainVBoxContainer/ScrollContainer"]
-margin_bottom = 551.0
+margin_right = 296.0
+margin_bottom = 515.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="TradeItem2" parent="NinePatchRect/MarginContainer/MainVBoxContainer/ScrollContainer/ProductsVBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
+margin_right = 296.0
 product = "Silver"
 
 [node name="TradeItem1" parent="NinePatchRect/MarginContainer/MainVBoxContainer/ScrollContainer/ProductsVBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 margin_top = 36.0
+margin_right = 296.0
 margin_bottom = 68.0
-buy = 876
-sell = 800
 
 [node name="PlayTextureButton" type="TextureButton" parent="NinePatchRect/MarginContainer/MainVBoxContainer"]
 margin_top = 591.0
@@ -140,7 +141,7 @@ stretch_mode = 5
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Map"
+text = "Leave the planet"
 align = 1
 valign = 1
 uppercase = true
@@ -149,4 +150,6 @@ uppercase = true
 stream = ExtResource( 6 )
 autoplay = true
 
+[connection signal="trade_item_buy" from="NinePatchRect/MarginContainer/MainVBoxContainer/ScrollContainer/ProductsVBoxContainer/TradeItem2" to="." method="_on_trade_item_buy"]
+[connection signal="trade_item_sell" from="NinePatchRect/MarginContainer/MainVBoxContainer/ScrollContainer/ProductsVBoxContainer/TradeItem2" to="." method="_on_trade_item_sell"]
 [connection signal="pressed" from="NinePatchRect/MarginContainer/MainVBoxContainer/PlayTextureButton" to="." method="_on_PlayTextureButton_pressed"]

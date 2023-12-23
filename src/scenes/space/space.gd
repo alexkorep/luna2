@@ -10,12 +10,17 @@ onready var Spaceship = $Spaceship
 func _ready():
 	if not Engine.editor_hint:
 		adjust_parallax_scale(Vector2(0.5, 0.5))
+		# Find the planet position
+		move_player_to_planet(GameState.planet_id)
 	
 func _process(_delta):
 	if Engine.editor_hint:
 		sync_parallax_objects()
 	else:
-		if find_planet_to_teleport_to() != null:
+		var near_planet = find_planet_to_teleport_to()
+		if near_planet != null:
+			var planet_id_str = near_planet.planet_id_to_string(near_planet.planet_id)
+			GameState.set_planet_id(planet_id_str)
 			Spaceship.teleport_to_the_planet()
 
 func adjust_parallax_scale(new_scale: Vector2):
@@ -83,7 +88,14 @@ func find_planet_to_teleport_to():
 			return planet
 	return null
 
+func move_player_to_planet(planet_id_str):
+	var Planets = $ParallaxBackground/ParallaxLayer/Planets
+	for planet in Planets.get_children():
+		var id_str = planet.planet_id_to_string(planet.planet_id)
+		if id_str == planet_id_str:
+			Spaceship.position = planet.teleport_position + Vector2(0, -64)
 
 func _on_Spaceship_ship_submerged():
 	# TODO Save the planet to the global state
 	get_tree().change_scene("res://scenes/trade_screen/trade_screen.tscn")
+

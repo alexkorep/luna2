@@ -7,66 +7,65 @@ anchor_right = 1.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 0, 32 )
 mouse_filter = 1
+size_flags_horizontal = 3
 script = ExtResource( 1 )
-buy = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="ProductLabel" type="Label" parent="HBoxContainer"]
-margin_right = 56.0
+margin_right = 149.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 text = "Gold"
 valign = 1
+clip_text = true
 
-[node name="UnitLabel" type="Label" parent="HBoxContainer"]
-margin_left = 60.0
-margin_right = 117.0
+[node name="PriceLabel" type="Label" parent="HBoxContainer"]
+margin_left = 153.0
+margin_right = 193.0
 margin_bottom = 32.0
-size_flags_horizontal = 3
+rect_min_size = Vector2( 40, 0 )
 size_flags_vertical = 7
-text = "ton"
-align = 1
+text = "21"
+align = 2
 valign = 1
 
-[node name="SellButton" type="Button" parent="HBoxContainer"]
-margin_left = 121.0
-margin_right = 178.0
-margin_bottom = 32.0
-size_flags_horizontal = 3
-size_flags_vertical = 7
-text = "13"
-
 [node name="BuyButton" type="Button" parent="HBoxContainer"]
-margin_left = 182.0
-margin_right = 238.0
+margin_left = 197.0
+margin_right = 233.0
 margin_bottom = 32.0
-size_flags_horizontal = 3
-size_flags_vertical = 7
-text = "20"
+size_flags_vertical = 3
+text = "Buy"
 
 [node name="QtyLabel" type="Label" parent="HBoxContainer"]
-margin_left = 242.0
-margin_right = 299.0
+margin_left = 237.0
+margin_right = 277.0
 margin_bottom = 32.0
-size_flags_horizontal = 3
-size_flags_vertical = 7
+rect_min_size = Vector2( 40, 0 )
+size_flags_vertical = 3
 text = "3"
 align = 1
 valign = 1
 
 [node name="HoldLabel" type="Label" parent="HBoxContainer"]
-margin_left = 303.0
-margin_right = 360.0
+margin_left = 281.0
+margin_right = 321.0
 margin_bottom = 32.0
-size_flags_horizontal = 3
-size_flags_vertical = 7
+rect_min_size = Vector2( 40, 0 )
+size_flags_vertical = 3
 text = "2"
 align = 1
 valign = 1
 
-[connection signal="pressed" from="HBoxContainer/SellButton" to="." method="_on_SellButton_pressed"]
+[node name="SellButton" type="Button" parent="HBoxContainer"]
+margin_left = 325.0
+margin_right = 360.0
+margin_bottom = 32.0
+size_flags_vertical = 7
+text = "Sell"
+
 [connection signal="pressed" from="HBoxContainer/BuyButton" to="." method="_on_BuyButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/SellButton" to="." method="_on_SellButton_pressed"]

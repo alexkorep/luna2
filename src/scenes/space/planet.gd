@@ -76,6 +76,9 @@ export var teleport_position := Vector2(0, 0)
 export (PlanetIDs) var planet_id := PlanetIDs.nebulon_1
 export (Texture) var planet_texture setget set_texture
 
+func planet_id_to_string(id):
+	return planetNames[id]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$PlanetTexture.texture = planet_texture

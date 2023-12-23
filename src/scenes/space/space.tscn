@@ -204,7 +204,6 @@ planet_texture = ExtResource( 12 )
 [node name="Planet5" parent="ParallaxBackground/ParallaxLayer/Planets" instance=ExtResource( 11 )]
 position = Vector2( 448, 640 )
 teleport_position = Vector2( 448, 640 )
-planet_id = 30
 planet_texture = ExtResource( 12 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

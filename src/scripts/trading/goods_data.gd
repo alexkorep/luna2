@@ -83,7 +83,7 @@ var goods = [
 	"ID": "exotic_spices",
 	"Description": "Luxury item, expensive on culturally rich or high-population planets; less valuable on utilitarian or low-population planets.",
 	"MinTechLevel": 1,
-	"BasePricePerTechLevel": [1900, 1880, 1860, 1840, 1820, 1800, 1780, 1760, 1740, 1720]
+	"BasePricePerTechLevel": [1800, 1880, 1900, 1940, 2020, 2300, 2480, 2560, 2640, 2720]
 	},
 	{
 	"Name": "Robotics Components",

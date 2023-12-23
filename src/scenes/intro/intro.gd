@@ -35,9 +35,10 @@ func _on_Timer_timeout():
 
 
 
-func _on_NewGameTextureButton_pressed():
+func _on_new_game_pressed():
+	GameState.new_game()
 	get_tree().change_scene("res://scenes/trade_screen/trade_screen.tscn")
 
 
-func _on_SettingsTextureButton_pressed():
-	get_tree().change_scene("res://scenes/ending-broke/ending-broke.tscn")
+func _on_continue_pressed():
+	get_tree().change_scene("res://scenes/trade_screen/trade_screen.tscn")
