@@ -7,6 +7,7 @@ extends Control
 
 onready var ProductsVBoxContainer = $NinePatchRect/MarginContainer/MainVBoxContainer/ScrollContainer/ProductsVBoxContainer
 onready var FundsLabel = $NinePatchRect/MarginContainer/MainVBoxContainer/FundsRow/FundsLabel
+onready var PlanetNameLabel = $NinePatchRect/MarginContainer/MainVBoxContainer/PlanetRow/PlanetNameLabel
 var trade_item = preload('res://scenes/trade_screen/trade_item.tscn')
 
 # Called when the node enters the scene tree for the first time.
@@ -15,6 +16,8 @@ func _ready():
 
 func fill_goods():
 	FundsLabel.text = str(GameState.funds) + 'cr'
+	var planet = GameState.get_current_planet()
+	PlanetNameLabel.text = planet["Name"] + " (level " + str(planet["TechLevel"]) +")"
 	
 	# clear ProductsVBoxContainer children
 	for child in ProductsVBoxContainer.get_children():

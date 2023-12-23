@@ -40,9 +40,21 @@ margin_right = 296.0
 margin_bottom = 655.0
 mouse_filter = 2
 
-[node name="FundsRow" type="HBoxContainer" parent="NinePatchRect/MarginContainer/MainVBoxContainer"]
+[node name="PlanetRow" type="HBoxContainer" parent="NinePatchRect/MarginContainer/MainVBoxContainer"]
 margin_right = 296.0
 margin_bottom = 32.0
+
+[node name="PlanetNameLabel" type="Label" parent="NinePatchRect/MarginContainer/MainVBoxContainer/PlanetRow"]
+margin_right = 42.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+text = "Funds:"
+valign = 1
+
+[node name="FundsRow" type="HBoxContainer" parent="NinePatchRect/MarginContainer/MainVBoxContainer"]
+margin_top = 36.0
+margin_right = 296.0
+margin_bottom = 68.0
 
 [node name="Label" type="Label" parent="NinePatchRect/MarginContainer/MainVBoxContainer/FundsRow"]
 margin_right = 42.0
@@ -60,9 +72,9 @@ text = "100 cr"
 valign = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer/MainVBoxContainer"]
-margin_top = 36.0
+margin_top = 72.0
 margin_right = 296.0
-margin_bottom = 68.0
+margin_bottom = 104.0
 rect_min_size = Vector2( 0, 32 )
 
 [node name="ProductLabel" type="Label" parent="NinePatchRect/MarginContainer/MainVBoxContainer/HBoxContainer"]
@@ -104,7 +116,7 @@ align = 1
 valign = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/MarginContainer/MainVBoxContainer"]
-margin_top = 72.0
+margin_top = 108.0
 margin_right = 296.0
 margin_bottom = 587.0
 mouse_filter = 1
@@ -112,7 +124,7 @@ size_flags_vertical = 3
 
 [node name="ProductsVBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer/MainVBoxContainer/ScrollContainer"]
 margin_right = 296.0
-margin_bottom = 515.0
+margin_bottom = 479.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 

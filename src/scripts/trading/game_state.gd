@@ -73,6 +73,9 @@ func sell(product_idx: int, quantity: int = 1):
 		player_quantity[product_idx] -= quantity
 		save_game()
 
+func get_current_planet():
+	return PlanetsData.get_planet_by_id(planet_id)
+	
 # Save the state of the game
 func save_game():
 	var save_dict = {
