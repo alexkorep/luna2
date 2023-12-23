@@ -86,4 +86,4 @@ func find_planet_to_teleport_to():
 
 func _on_Spaceship_ship_submerged():
 	# TODO Save the planet to the global state
-	get_tree().change_scene("res://scenes/trade/trade.tscn")
+	get_tree().change_scene("res://scenes/trade_screen/trade_screen.tscn")

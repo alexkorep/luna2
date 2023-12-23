@@ -6,6 +6,7 @@
 anchor_right = 1.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 0, 32 )
+mouse_filter = 1
 script = ExtResource( 1 )
 buy = 20
 

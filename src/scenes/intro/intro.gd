@@ -36,7 +36,7 @@ func _on_Timer_timeout():
 
 
 func _on_NewGameTextureButton_pressed():
-	get_tree().change_scene("res://scenes/space/space.tscn")
+	get_tree().change_scene("res://scenes/trade_screen/trade_screen.tscn")
 
 
 func _on_SettingsTextureButton_pressed():

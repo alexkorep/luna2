@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/trading/player.gd"
 }, {
-"base": "Node",
-"class": "PlayerData",
-"language": "GDScript",
-"path": "res://scripts/trading/planets_data.gd"
-}, {
 "base": "KinematicBody2D",
 "class": "Spaceship",
 "language": "GDScript",
@@ -47,7 +42,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Market": "",
 "Player": "",
-"PlayerData": "",
 "Spaceship": "",
 "SpaceshipStateMachine": "",
 "State": "",
@@ -63,6 +57,7 @@ config/icon="res://icon.png"
 [autoload]
 
 PlanetsData="*res://scripts/trading/planets_data.gd"
+GoodsData="*res://scripts/trading/goods_data.gd"
 
 [display]
 
