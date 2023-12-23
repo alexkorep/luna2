@@ -12,8 +12,9 @@ onready var Explosion = $Explosion
 onready var ExplosionParticles = $Explosion/ExplosionParticles
 onready var Ship = $Ship
 
-func mission_completed():
-	SpaceshipStateMachine.transition_to("Submerge")
+func teleport_to_the_planet():
+	if SpaceshipStateMachine.state and SpaceshipStateMachine.state.name  != "Submerge":
+		SpaceshipStateMachine.transition_to("Submerge")
 
 func emit_ship_submerged():
 	emit_signal("ship_submerged")

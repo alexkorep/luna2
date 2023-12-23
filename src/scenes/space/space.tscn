@@ -7,10 +7,10 @@
 [ext_resource path="res://assets/space/spacetile04.png" type="Texture" id=5]
 [ext_resource path="res://assets/space/spacetile05.png" type="Texture" id=6]
 [ext_resource path="res://assets/space/spacetile01.png" type="Texture" id=7]
-[ext_resource path="res://scenes/space/planet.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/space/planet.gd" type="Script" id=8]
 [ext_resource path="res://assets/music/music-ambient-01.wav" type="AudioStream" id=9]
 [ext_resource path="res://assets/space/targettile01.png" type="Texture" id=10]
-[ext_resource path="res://scenes/space/planet.gd" type="Script" id=11]
+[ext_resource path="res://scenes/space/planet.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
 points = PoolVector2Array( 0, 32, 0, 32, 64, 0, 128, 32, 128, 96, 64, 128, 0, 96, 0, 32 )
@@ -160,7 +160,7 @@ cell_half_offset = 0
 show_collision = true
 centered_textures = true
 format = 1
-tile_data = PoolIntArray( -131078, 5, 0, -131075, 5, 0, -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -196604, 5, 0, -65540, 2, 0, -65539, 2, 0, -65537, 0, 0, -131072, 0, 0, -131071, 1, 0, -131070, 1, 0, -5, 2, 0, -4, 2, 0, -3, 3, 0, -65536, 1, 0, -65535, 1, 0, 65532, 2, 0, 65533, 3, 0, 196605, 5, 0, 196606, 3, 0, 196607, 4, 0, 131072, 3, 0, 262137, 5, 0, 262142, 3, 0, 262143, 4, 0, 196608, 4, 0, 196610, 5, 0 )
+tile_data = PoolIntArray( -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -65540, 2, 0, -65539, 2, 0, -65537, 0, 0, -131072, 0, 0, -131071, 1, 0, -131070, 1, 0, -5, 2, 0, -4, 2, 0, -3, 3, 0, -65536, 1, 0, -65535, 1, 0, 65532, 2, 0, 65533, 3, 0, 65536, 5, 0, 196606, 3, 0, 196607, 4, 0, 131072, 3, 0, 262142, 3, 0, 262143, 4, 0, 196608, 4, 0 )
 
 [node name="Spaceship" parent="." instance=ExtResource( 2 )]
 
@@ -176,30 +176,13 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="Planets" type="Node2D" parent="ParallaxBackground/ParallaxLayer"]
 
-[node name="Planet4" type="Node2D" parent="ParallaxBackground/ParallaxLayer/Planets" instance=ExtResource( 8 )]
-position = Vector2( -640, -224 )
-script = ExtResource( 11 )
-
-[node name="Planet6" type="Node2D" parent="ParallaxBackground/ParallaxLayer/Planets" instance=ExtResource( 8 )]
-position = Vector2( -256, -224 )
-script = ExtResource( 11 )
-
-[node name="Planet9" type="Node2D" parent="ParallaxBackground/ParallaxLayer/Planets" instance=ExtResource( 8 )]
-position = Vector2( 640, -224 )
-script = ExtResource( 11 )
-
-[node name="Planet10" type="Node2D" parent="ParallaxBackground/ParallaxLayer/Planets" instance=ExtResource( 8 )]
-position = Vector2( -320, 256 )
-script = ExtResource( 11 )
-
-[node name="Planet11" type="Node2D" parent="ParallaxBackground/ParallaxLayer/Planets" instance=ExtResource( 8 )]
-position = Vector2( -768, 352 )
-script = ExtResource( 11 )
-
-[node name="Planet12" type="Node2D" parent="ParallaxBackground/ParallaxLayer/Planets" instance=ExtResource( 8 )]
-position = Vector2( 384, 352 )
-script = ExtResource( 11 )
+[node name="Planet" type="Node2D" parent="ParallaxBackground/ParallaxLayer/Planets" instance=ExtResource( 11 )]
+position = Vector2( 128, 160 )
+script = ExtResource( 8 )
+teleport_position = Vector2( 128, 160 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 autoplay = true
+
+[connection signal="ship_submerged" from="Spaceship" to="." method="_on_Spaceship_ship_submerged"]

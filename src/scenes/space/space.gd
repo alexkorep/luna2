@@ -5,6 +5,8 @@ extends Node2D
 var TARGET_BOCK_ID = 5
 var Planet = load("res://scenes/space/planet.tscn")
 
+onready var Spaceship = $Spaceship
+
 func _ready():
 	if not Engine.editor_hint:
 		adjust_parallax_scale(Vector2(0.5, 0.5))
@@ -12,6 +14,9 @@ func _ready():
 func _process(_delta):
 	if Engine.editor_hint:
 		sync_parallax_objects()
+	else:
+		if find_planet_to_teleport_to() != null:
+			Spaceship.teleport_to_the_planet()
 
 func adjust_parallax_scale(new_scale: Vector2):
 	var Planets = $ParallaxBackground/ParallaxLayer/Planets
@@ -59,6 +64,8 @@ func sync_parallax_objects():
 		else:
 			var planet = Planet.instance()
 			planet.position = planet_position
+			planet.teleport_position = planet_position
+			# planet.durty = false
 			Planets.add_child(planet)
 			planet.set_owner(get_tree().edited_scene_root)
 	
@@ -66,3 +73,17 @@ func sync_parallax_objects():
 	for planet in Planets.get_children():
 		if planet.dirty:
 			planet.queue_free()
+
+func find_planet_to_teleport_to():
+	var Planets = $ParallaxBackground/ParallaxLayer/Planets
+	var range_to_teleport = 64
+	for planet in Planets.get_children():
+		var distance = Spaceship.position.distance_to(planet.teleport_position)
+		if distance < range_to_teleport:
+			return planet
+	return null
+
+
+func _on_Spaceship_ship_submerged():
+	# TODO Save the planet to the global state
+	get_tree().change_scene("res://scenes/trade/trade.tscn")

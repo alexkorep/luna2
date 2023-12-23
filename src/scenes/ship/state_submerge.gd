@@ -25,8 +25,8 @@ func enter(_msg := {}) -> void:
 		Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	tween.interpolate_property(owner, "rotation", owner.rotation, target_angle, duration, 
 		Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
-	tween.interpolate_property(owner, "position", owner.position, target_position, duration, 
-		Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	# tween.interpolate_property(owner, "position", owner.position, target_position, duration, 
+	# 	Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 
 	tween.connect("tween_completed", self, "_on_tween_completed")
 	tween.start()
