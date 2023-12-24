@@ -162,6 +162,7 @@ centered_textures = true
 format = 1
 
 [node name="Spaceship" parent="." instance=ExtResource( 2 )]
+max_speed = 1000.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

@@ -50,7 +50,7 @@ func generate_prices():
 	var i = 0
 	for good in goods:
 		var base_prices = good["BasePricePerTechLevel"]
-		var base_price = base_prices[tech_level]
+		var base_price = base_prices[tech_level - 1]
 		var min_tech_level = good["MinTechLevel"]
 
 		var variance = base_price*price_vadiance

@@ -6,6 +6,8 @@ extends Node2D
 var GENERATION_RADIUS = 20
 # Tile ID of the target block for visiting the planet
 var TARGET_BOCK_ID = 5
+var MIN_DISTANCE_BETWEEN_PLANETS = 6
+
 var Planet = preload("res://scenes/space/planet.tscn")
 
 onready var Spaceship = $Spaceship
@@ -113,18 +115,31 @@ func _generate_random_map(seed_value: int):
 	var rng = RandomNumberGenerator.new()
 	rng.seed = seed_value
 
-	for planet_data in PlanetsData.planets:
-		var planet_id = planet_data["ID"]
-		print(planet_id)
+	var points = []
+	var num_points = len(PlanetsData.planets)
+	while len(points) < num_points:
 		var tile_position = Vector2(
 			rng.randi_range(-GENERATION_RADIUS, GENERATION_RADIUS), 
 			rng.randi_range(-GENERATION_RADIUS, GENERATION_RADIUS))
-		print(tile_position)
+
+		# Check if there are neighbours which are too close
+		var is_good = true
+		for other in points:
+			if distance(tile_position, other) < MIN_DISTANCE_BETWEEN_PLANETS:
+				is_good = false
+				break
+		if not is_good:
+			continue
+
+		points.append(tile_position)
 		# Set tile at this position to TARGET_BOCK_ID
 		Tileset.set_cellv(tile_position, TARGET_BOCK_ID)
+		var planet_data = PlanetsData.planets[len(points) - 1]
+		var planet_id = planet_data["ID"]
 		_add_planet_at_tile_position(tile_position, planet_id)
 
 func _add_planet_at_tile_position(tile_position, planet_id):
+	print(tile_position, planet_id)
 	var planet_position = Tileset.map_to_world(tile_position)*ParallaxLayer.motion_scale + Tileset.cell_size/2
 	var planet = Planet.instance()
 	planet.position = planet_position
@@ -133,3 +148,7 @@ func _add_planet_at_tile_position(tile_position, planet_id):
 	var planet_texture = load("res://assets/planets/" + planet_id + ".png")
 	planet.planet_texture = planet_texture
 	Planets.add_child(planet)
+
+func distance(point1, point2):
+	#return sqrt((point1[0] - point2[0])*(point1[0] - point2[0]) + (point1[1] - point2[1])*(point1[1] - point2[1]))
+	return max(abs(point1[0] - point2[0]), abs(point1[1] - point2[1]))
