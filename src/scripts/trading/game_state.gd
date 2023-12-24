@@ -5,6 +5,8 @@ var planet_id: String = ""
 
 var price_vadiance = 0.05
 
+var map_generation_seed = 283777479
+
 # array of prices for each good
 var prices = []
 # Stock on the planet and player
@@ -38,6 +40,7 @@ func set_planet_id(id: String):
 		return
 	planet_id = id
 	generate_prices()
+	save_game()
 
 func generate_prices():
 	# Prices are based on the planet's technological level

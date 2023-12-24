@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/space/space.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ship/ship.tscn" type="PackedScene" id=2]
@@ -7,11 +7,8 @@
 [ext_resource path="res://assets/space/spacetile04.png" type="Texture" id=5]
 [ext_resource path="res://assets/space/spacetile05.png" type="Texture" id=6]
 [ext_resource path="res://assets/space/spacetile01.png" type="Texture" id=7]
-[ext_resource path="res://assets/planets/planet01.png" type="Texture" id=8]
 [ext_resource path="res://assets/music/music-ambient-01.wav" type="AudioStream" id=9]
 [ext_resource path="res://assets/space/targettile01.png" type="Texture" id=10]
-[ext_resource path="res://scenes/space/planet.tscn" type="PackedScene" id=11]
-[ext_resource path="res://assets/planets/planet02.png" type="Texture" id=12]
 [ext_resource path="res://scenes/joystick/virtual_joystick.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/space/background-galaxy.png" type="Texture" id=14]
 
@@ -163,7 +160,6 @@ cell_half_offset = 0
 show_collision = true
 centered_textures = true
 format = 1
-tile_data = PoolIntArray( -393229, 4, 0, -393228, 4, 0, -393227, 4, 0, -393226, 4, 0, -393225, 4, 0, -393224, 4, 0, -393223, 4, 0, -393222, 4, 0, -393221, 4, 0, -393220, 4, 0, -393219, 4, 0, -393218, 4, 0, -393217, 4, 0, -458752, 4, 0, -458751, 4, 0, -458750, 4, 0, -458749, 4, 0, -458748, 4, 0, -458747, 4, 0, -327693, 4, 0, -327685, 4, 0, -393211, 4, 0, -262158, 4, 0, -262154, 5, 0, -262150, 4, 0, -327675, 4, 0, -196622, 4, 0, -196613, 4, 0, -262139, 4, 0, -131087, 4, 0, -131084, 4, 0, -131083, 4, 0, -131082, 4, 0, -131081, 4, 0, -131078, 4, 0, -131077, 4, 0, -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -196603, 4, 0, -65550, 4, 0, -65549, 4, 0, -65548, 4, 0, -65545, 4, 0, -65544, 4, 0, -65541, 4, 0, -65540, 4, 0, -65539, 2, 0, -65537, 0, 0, -131072, 0, 0, -131071, 1, 0, -131070, 1, 0, -131067, 4, 0, -15, 4, 0, -5, 4, 0, -4, 2, 0, -3, 3, 0, -65536, 1, 0, -65535, 1, 0, -65531, 4, 0, 65522, 4, 0, 65532, 2, 0, 65533, 3, 0, 5, 4, 0, 131057, 4, 0, 131061, 5, 0, 131066, 4, 0, 131067, 4, 0, 65536, 5, 0, 65541, 4, 0, 196594, 4, 0, 196601, 4, 0, 196602, 4, 0, 196606, 3, 0, 196607, 4, 0, 131072, 3, 0, 131077, 4, 0, 262129, 4, 0, 262137, 4, 0, 262142, 3, 0, 262143, 4, 0, 196608, 4, 0, 196613, 4, 0, 327666, 4, 0, 327673, 4, 0, 262149, 4, 0, 393202, 4, 0, 393205, 4, 0, 393206, 4, 0, 393207, 4, 0, 393208, 4, 0, 393210, 5, 0, 327685, 4, 0, 458738, 4, 0, 393219, 5, 0, 393221, 4, 0, 524274, 4, 0, 458757, 4, 0, 589810, 4, 0, 589811, 4, 0, 589820, 4, 0, 589821, 4, 0, 589822, 4, 0, 589823, 4, 0, 524288, 4, 0, 524293, 4, 0, 655347, 4, 0, 655348, 4, 0, 655349, 4, 0, 655350, 4, 0, 655351, 4, 0, 655352, 4, 0, 655353, 4, 0, 655354, 4, 0, 655355, 4, 0, 589824, 4, 0, 589825, 4, 0, 589826, 4, 0, 589827, 4, 0, 589828, 4, 0, 589829, 4, 0, 720888, 4, 0, 720889, 4, 0 )
 
 [node name="Spaceship" parent="." instance=ExtResource( 2 )]
 
@@ -186,35 +182,6 @@ texture = ExtResource( 14 )
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Planets" type="Node2D" parent="ParallaxBackground/ParallaxLayer"]
-
-[node name="Planet" parent="ParallaxBackground/ParallaxLayer/Planets" instance=ExtResource( 11 )]
-position = Vector2( 128, 160 )
-teleport_position = Vector2( 128, 160 )
-planet_id = 17
-planet_texture = ExtResource( 12 )
-
-[node name="Planet2" parent="ParallaxBackground/ParallaxLayer/Planets" instance=ExtResource( 11 )]
-position = Vector2( -640, 544 )
-teleport_position = Vector2( -640, 544 )
-planet_id = 27
-planet_texture = ExtResource( 8 )
-
-[node name="Planet3" parent="ParallaxBackground/ParallaxLayer/Planets" instance=ExtResource( 11 )]
-position = Vector2( -1280, 160 )
-teleport_position = Vector2( -1280, 160 )
-planet_id = 23
-planet_texture = ExtResource( 8 )
-
-[node name="Planet4" parent="ParallaxBackground/ParallaxLayer/Planets" instance=ExtResource( 11 )]
-position = Vector2( -1152, -416 )
-teleport_position = Vector2( -1152, -416 )
-planet_id = 14
-planet_texture = ExtResource( 12 )
-
-[node name="Planet5" parent="ParallaxBackground/ParallaxLayer/Planets" instance=ExtResource( 11 )]
-position = Vector2( 448, 640 )
-teleport_position = Vector2( 448, 640 )
-planet_texture = ExtResource( 12 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )

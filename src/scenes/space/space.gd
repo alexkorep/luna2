@@ -2,12 +2,19 @@ tool
 extends Node2D
 # Music prompt: Calm electronic ambient music for a adventure game with the space theme
 
+# Planet tile generation area, in the tile coordinates
+var GENERATION_RADIUS = 10
+# Tile ID of the target block for visiting the planet
 var TARGET_BOCK_ID = 5
 var Planet = load("res://scenes/space/planet.tscn")
 
 onready var Spaceship = $Spaceship
+onready var Tileset = $Tileset
+onready var Planets = $ParallaxBackground/ParallaxLayer/Planets
+onready var ParallaxLayer = $ParallaxBackground/ParallaxLayer
 
 func _ready():
+	_generate_random_map(GameState.map_generation_seed)
 	if not Engine.editor_hint:
 		adjust_parallax_scale(Vector2(0.5, 0.5))
 		# Find the planet position
@@ -19,7 +26,7 @@ func _process(_delta):
 	else:
 		var near_planet = find_planet_to_teleport_to()
 		if near_planet != null:
-			var planet_id_str = near_planet.planet_id_to_string(near_planet.planet_id)
+			var planet_id_str = near_planet.planet_id
 			GameState.set_planet_id(planet_id_str)
 			Spaceship.teleport_to_the_planet()
 
@@ -91,11 +98,36 @@ func find_planet_to_teleport_to():
 func move_player_to_planet(planet_id_str):
 	var Planets = $ParallaxBackground/ParallaxLayer/Planets
 	for planet in Planets.get_children():
-		var id_str = planet.planet_id_to_string(planet.planet_id)
-		if id_str == planet_id_str:
+		if planet.planet_id == planet_id_str:
 			Spaceship.position = planet.teleport_position + Vector2(0, -64)
 
 func _on_Spaceship_ship_submerged():
 	# TODO Save the planet to the global state
 	get_tree().change_scene("res://scenes/trade_screen/trade_screen.tscn")
 
+func _generate_random_map(seed_value: int):
+	if Engine.editor_hint:
+		# Do it only run time
+		return
+
+	var rng = RandomNumberGenerator.new()
+	rng.seed = seed_value
+
+	for planet_data in PlanetsData.planets:
+		var planet_id = planet_data["ID"]
+		print(planet_id)
+		var tile_position = Vector2(
+			rng.randi_range(-GENERATION_RADIUS, GENERATION_RADIUS), 
+			rng.randi_range(-GENERATION_RADIUS, GENERATION_RADIUS))
+		print(tile_position)
+		# Set tile at this position to TARGET_BOCK_ID
+		Tileset.set_cellv(tile_position, TARGET_BOCK_ID)
+		_add_planet_at_tile_position(tile_position, planet_id)
+
+func _add_planet_at_tile_position(tile_position, planet_id):
+	var planet_position = Tileset.map_to_world(tile_position)*ParallaxLayer.motion_scale + Tileset.cell_size/2
+	var planet = Planet.instance()
+	planet.position = planet_position
+	planet.teleport_position = planet_position
+	planet.planet_id = planet_id
+	Planets.add_child(planet)

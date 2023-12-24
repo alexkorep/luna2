@@ -1,4 +1,3 @@
-tool
 extends Node2D
 
 enum PlanetIDs {
@@ -70,31 +69,25 @@ const planetNames = [
 ];
 
 
-# Used internaly to sync the grid and the objects
-export var dirty := false
 export var teleport_position := Vector2(0, 0)
-export (PlanetIDs) var planet_id := PlanetIDs.nebulon_1
+export var planet_id := "avalon_2"
 export (Texture) var planet_texture setget set_texture
-
-func planet_id_to_string(id):
-	return planetNames[id]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$PlanetTexture.texture = planet_texture
+	# $PlanetTexture.texture = planet_texture
+	pass
 
 func set_texture(texture):
 	planet_texture = texture
-	if not $PlanetTexture:
-		return
-	$PlanetTexture.texture = texture
+	# if not $PlanetTexture:
+	# 	return
+	# $PlanetTexture.texture = texture
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if not Engine.editor_hint:
-		update_label()
+	update_label()
 
 func update_label():
-	var id_str = planetNames[planet_id]
-	var planet = PlanetsData.get_planet_by_id(id_str)
+	var planet = PlanetsData.get_planet_by_id(planet_id)
 	$NameLabel.text = planet["Name"]
