@@ -75,14 +75,13 @@ export (Texture) var planet_texture setget set_texture
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# $PlanetTexture.texture = planet_texture
-	pass
+	$PlanetTexture.texture = planet_texture
 
 func set_texture(texture):
 	planet_texture = texture
-	# if not $PlanetTexture:
-	# 	return
-	# $PlanetTexture.texture = texture
+	if not $PlanetTexture:
+		return
+	$PlanetTexture.texture = texture
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -3,10 +3,10 @@ extends Node2D
 # Music prompt: Calm electronic ambient music for a adventure game with the space theme
 
 # Planet tile generation area, in the tile coordinates
-var GENERATION_RADIUS = 10
+var GENERATION_RADIUS = 20
 # Tile ID of the target block for visiting the planet
 var TARGET_BOCK_ID = 5
-var Planet = load("res://scenes/space/planet.tscn")
+var Planet = preload("res://scenes/space/planet.tscn")
 
 onready var Spaceship = $Spaceship
 onready var Tileset = $Tileset
@@ -130,4 +130,6 @@ func _add_planet_at_tile_position(tile_position, planet_id):
 	planet.position = planet_position
 	planet.teleport_position = planet_position
 	planet.planet_id = planet_id
+	var planet_texture = load("res://assets/planets/" + planet_id + ".png")
+	planet.planet_texture = planet_texture
 	Planets.add_child(planet)
