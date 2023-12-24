@@ -31,7 +31,7 @@ func on_asteroid_hit(asteroid, body):
 
 func _on_hud_map():
 	if Camera2D.zoom == Vector2(1, 1):
-		Camera2D.zoom = Vector2(10, 10)
+		Camera2D.zoom = Vector2(20, 20)
 	else:
 		Camera2D.zoom = Vector2(1, 1)
 	

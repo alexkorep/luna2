@@ -2,8 +2,6 @@ tool
 extends Node2D
 # Music prompt: Calm electronic ambient music for a adventure game with the space theme
 
-# Planet tile generation area, in the tile coordinates
-var GENERATION_RADIUS = 20
 # Tile ID of the target block for visiting the planet
 var TARGET_BOCK_ID = 5
 var MIN_DISTANCE_BETWEEN_PLANETS = 5
@@ -14,6 +12,9 @@ onready var Spaceship = $Spaceship
 onready var Tileset = $Tileset
 onready var Planets = $ParallaxBackground/ParallaxLayer/Planets
 onready var ParallaxLayer = $ParallaxBackground/ParallaxLayer
+onready var Orbits = $ParallaxBackground/ParallaxLayer/Orbits
+
+var radius_list = []
 
 func _ready():
 	_generate_random_map(GameState.map_generation_seed)
@@ -115,41 +116,25 @@ func _generate_random_map(seed_value: int):
 	var rng = RandomNumberGenerator.new()
 	rng.seed = seed_value
 
-	var points = []
-	var current_point = Vector2(0, 0)
-	var directions = [Vector2(1, 0), Vector2(0, 1), Vector2(-1, 0), Vector2(0, -1)]
-	var current_direction_index = 0
-	var current_size = 1
-	var counter = 0
-	# Make a spiral, add points to the points list
+	radius_list = []
+	var angle = 0
+	var radius = MIN_DISTANCE_BETWEEN_PLANETS
 	for planet in PlanetsData.planets:
-		print(current_point)
-		points.append(current_point)
-		var step = rng.randi_range(MIN_DISTANCE_BETWEEN_PLANETS, MIN_DISTANCE_BETWEEN_PLANETS*2)
-		# Testing
-		# var pnt = current_point
-		# for i in range(step):
-		# 	Tileset.set_cellv(pnt, 1)
-		# 	pnt += directions[current_direction_index]
-		# end testing
-		current_point += directions[current_direction_index]*step
-		counter += step
-		if counter > current_size:
-			current_direction_index = (current_direction_index + 1) % len(directions)
-			if current_direction_index % 2 == 0:
-				current_size = counter + MIN_DISTANCE_BETWEEN_PLANETS
-			counter = 0
+		radius += MIN_DISTANCE_BETWEEN_PLANETS
+		angle = rng.randf_range(0, 2*PI)
+		var x = int(radius*cos(angle))
+		var y = int(radius*sin(angle))
+		var planet_position = Vector2(x, y)
+		_add_planet_at_tile_position(planet_position, planet["ID"])
 
-	for i in range(len(points)):
-		var point = points[i]
-		Tileset.set_cellv(point, TARGET_BOCK_ID)
-		var planet_data = PlanetsData.planets[i]
-		var planet_id = planet_data["ID"]
-		_add_planet_at_tile_position(point, planet_id)
+	Orbits.radius_list = radius_list
+	Orbits.update()
 
 func _add_planet_at_tile_position(tile_position, planet_id):
-	print(tile_position, planet_id)
+	Tileset.set_cellv(tile_position, TARGET_BOCK_ID)
 	var planet_position = Tileset.map_to_world(tile_position)*ParallaxLayer.motion_scale + Tileset.cell_size/2
+	var radius = planet_position.length()
+	radius_list.append(radius)
 	var planet = Planet.instance()
 	planet.position = planet_position
 	planet.teleport_position = planet_position
