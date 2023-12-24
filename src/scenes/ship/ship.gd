@@ -11,6 +11,8 @@ onready var SpaceshipStateMachine = $SpaceshipStateMachine
 onready var Explosion = $Explosion
 onready var ExplosionParticles = $Explosion/ExplosionParticles
 onready var Ship = $Ship
+onready var TouchStartSprite = $TouchStartSprite
+onready var Camera2D = $Camera2D
 
 func teleport_to_the_planet():
 	if SpaceshipStateMachine.state and SpaceshipStateMachine.state.name  != "Submerge":

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/space/space.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ship/ship.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/space/targettile01.png" type="Texture" id=10]
 [ext_resource path="res://scenes/space/planet.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/planets/planet02.png" type="Texture" id=12]
+[ext_resource path="res://scenes/joystick/virtual_joystick.tscn" type="PackedScene" id=13]
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
 points = PoolVector2Array( 0, 32, 0, 32, 64, 0, 128, 32, 128, 96, 64, 128, 0, 96, 0, 32 )
@@ -209,5 +210,13 @@ planet_texture = ExtResource( 12 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Virtual joystick" parent="CanvasLayer" instance=ExtResource( 13 )]
+margin_left = 148.0
+margin_top = -244.0
+margin_right = 348.0
+margin_bottom = -44.0
 
 [connection signal="ship_submerged" from="Spaceship" to="." method="_on_Spaceship_ship_submerged"]
