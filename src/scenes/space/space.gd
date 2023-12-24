@@ -91,7 +91,7 @@ func sync_parallax_objects():
 
 func find_planet_to_teleport_to():
 	var Planets = $ParallaxBackground/ParallaxLayer/Planets
-	var range_to_teleport = 32
+	var range_to_teleport = 64
 	for planet in Planets.get_children():
 		var distance = Spaceship.position.distance_to(planet.teleport_position)
 		if distance < range_to_teleport:
