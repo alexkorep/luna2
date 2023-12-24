@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/planet30.png-93e7fc224412d7a8d05b518d2c299e9d.stex"
+path="res://.import/nebulon_1.png-163364c8cb4cc2d45b0c91de59984d94.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/planets/planet30.png"
-dest_files=[ "res://.import/planet30.png-93e7fc224412d7a8d05b518d2c299e9d.stex" ]
+source_file="res://assets/planets/nebulon_1.png"
+dest_files=[ "res://.import/nebulon_1.png-163364c8cb4cc2d45b0c91de59984d94.stex" ]
 
 [params]
 

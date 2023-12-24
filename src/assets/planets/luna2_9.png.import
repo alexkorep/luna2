@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/planet03.png-970dac2d0e4d3929fbdd96193140f8b4.stex"
+path="res://.import/luna2_9.png-51a46aedef71df9968d13408b456445c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/planets/planet03.png"
-dest_files=[ "res://.import/planet03.png-970dac2d0e4d3929fbdd96193140f8b4.stex" ]
+source_file="res://assets/planets/luna2_9.png"
+dest_files=[ "res://.import/luna2_9.png-51a46aedef71df9968d13408b456445c.stex" ]
 
 [params]
 

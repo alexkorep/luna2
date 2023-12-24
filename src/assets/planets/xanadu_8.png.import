@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/planet02.png-be903f01344424727c87b39807242b9b.stex"
+path="res://.import/xanadu_8.png-2a0ade4e85a5cd7a6483ae8fbc6f35db.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/planets/planet02.png"
-dest_files=[ "res://.import/planet02.png-be903f01344424727c87b39807242b9b.stex" ]
+source_file="res://assets/planets/xanadu_8.png"
+dest_files=[ "res://.import/xanadu_8.png-2a0ade4e85a5cd7a6483ae8fbc6f35db.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/planet18.png-2c86607330b3c3945e963728ed972732.stex"
+path="res://.import/eridia_3.png-208d96b57087c5ed69f98fbed0b751dd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/planets/planet18.png"
-dest_files=[ "res://.import/planet18.png-2c86607330b3c3945e963728ed972732.stex" ]
+source_file="res://assets/planets/eridia_3.png"
+dest_files=[ "res://.import/eridia_3.png-208d96b57087c5ed69f98fbed0b751dd.stex" ]
 
 [params]
 

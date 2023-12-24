@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/planet20.png-0ebf1500fa165d27ea449d70db949baf.stex"
+path="res://.import/krypton_6.png-703b452a618dba80fd1f3039f1651aef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/planets/planet20.png"
-dest_files=[ "res://.import/planet20.png-0ebf1500fa165d27ea449d70db949baf.stex" ]
+source_file="res://assets/planets/krypton_6.png"
+dest_files=[ "res://.import/krypton_6.png-703b452a618dba80fd1f3039f1651aef.stex" ]
 
 [params]
 

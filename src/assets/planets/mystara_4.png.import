@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/planet08.png-537c73b14e93244efe00e5c2f215bd05.stex"
+path="res://.import/mystara_4.png-69e28f059bb7399f75bb9897e53e8abf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/planets/planet08.png"
-dest_files=[ "res://.import/planet08.png-537c73b14e93244efe00e5c2f215bd05.stex" ]
+source_file="res://assets/planets/mystara_4.png"
+dest_files=[ "res://.import/mystara_4.png-69e28f059bb7399f75bb9897e53e8abf.stex" ]
 
 [params]
 

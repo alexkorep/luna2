@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/planet23.png-590369537113126462c4517980d93364.stex"
+path="res://.import/pandora_4.png-0c2a4537ffc4d9617d5783ff6fea54ba.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/planets/planet23.png"
-dest_files=[ "res://.import/planet23.png-590369537113126462c4517980d93364.stex" ]
+source_file="res://assets/planets/pandora_4.png"
+dest_files=[ "res://.import/pandora_4.png-0c2a4537ffc4d9617d5783ff6fea54ba.stex" ]
 
 [params]
 

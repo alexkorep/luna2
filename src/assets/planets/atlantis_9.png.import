@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/planet25.png-5802c178218f8614c771bbb5713a482c.stex"
+path="res://.import/atlantis_9.png-361d24402b0236a847b411067145bbdf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/planets/planet25.png"
-dest_files=[ "res://.import/planet25.png-5802c178218f8614c771bbb5713a482c.stex" ]
+source_file="res://assets/planets/atlantis_9.png"
+dest_files=[ "res://.import/atlantis_9.png-361d24402b0236a847b411067145bbdf.stex" ]
 
 [params]
 

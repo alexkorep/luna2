@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/planet16.png-04e6a2420b128f2bb8a8a563565cdde4.stex"
+path="res://.import/valhalla_2.png-372df0a98b66c27417057f0683f6e00a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/planets/planet16.png"
-dest_files=[ "res://.import/planet16.png-04e6a2420b128f2bb8a8a563565cdde4.stex" ]
+source_file="res://assets/planets/valhalla_2.png"
+dest_files=[ "res://.import/valhalla_2.png-372df0a98b66c27417057f0683f6e00a.stex" ]
 
 [params]
 

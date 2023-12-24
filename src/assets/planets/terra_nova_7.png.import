@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/planet07.png-27fc2b306cc0f48789c9fecafc3404df.stex"
+path="res://.import/terra_nova_7.png-b4191ffde90b22adfd41ea7ecd55a576.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/planets/planet07.png"
-dest_files=[ "res://.import/planet07.png-27fc2b306cc0f48789c9fecafc3404df.stex" ]
+source_file="res://assets/planets/terra_nova_7.png"
+dest_files=[ "res://.import/terra_nova_7.png-b4191ffde90b22adfd41ea7ecd55a576.stex" ]
 
 [params]
 

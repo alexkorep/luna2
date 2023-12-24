@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/planet12.png-d88968c53a8c6ce6b2235dfe787f0edc.stex"
+path="res://.import/solaris_10.png-4a1cf89633bdd20eb123425d3dcb205a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/planets/planet12.png"
-dest_files=[ "res://.import/planet12.png-d88968c53a8c6ce6b2235dfe787f0edc.stex" ]
+source_file="res://assets/planets/solaris_10.png"
+dest_files=[ "res://.import/solaris_10.png-4a1cf89633bdd20eb123425d3dcb205a.stex" ]
 
 [params]
 

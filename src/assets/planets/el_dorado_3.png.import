@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/planet17.png-ed4ad55d1f08d10aee6eb2c5e888a662.stex"
+path="res://.import/el_dorado_3.png-76161938b83c663c2c1c6fee2b9c6c2f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/planets/planet17.png"
-dest_files=[ "res://.import/planet17.png-ed4ad55d1f08d10aee6eb2c5e888a662.stex" ]
+source_file="res://assets/planets/el_dorado_3.png"
+dest_files=[ "res://.import/el_dorado_3.png-76161938b83c663c2c1c6fee2b9c6c2f.stex" ]
 
 [params]
 

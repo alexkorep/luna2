@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/planet06.png-b06b6d2a65ae623d81c1269752b9d6c4.stex"
+path="res://.import/meridian_7.png-2ed9b5270862645915cbfdd9eda1eeb9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/planets/planet06.png"
-dest_files=[ "res://.import/planet06.png-b06b6d2a65ae623d81c1269752b9d6c4.stex" ]
+source_file="res://assets/planets/meridian_7.png"
+dest_files=[ "res://.import/meridian_7.png-2ed9b5270862645915cbfdd9eda1eeb9.stex" ]
 
 [params]
 

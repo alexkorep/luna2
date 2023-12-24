@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/planet14.png-b65c09008bbfc73bd7d760373fd3bf5c.stex"
+path="res://.import/vulcania_6.png-5b421ff5850bbfb08be06bace7cd1302.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/planets/planet14.png"
-dest_files=[ "res://.import/planet14.png-b65c09008bbfc73bd7d760373fd3bf5c.stex" ]
+source_file="res://assets/planets/vulcania_6.png"
+dest_files=[ "res://.import/vulcania_6.png-5b421ff5850bbfb08be06bace7cd1302.stex" ]
 
 [params]
 

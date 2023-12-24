@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/planet13.png-574dee2c28d421a867d2733f4a38e946.stex"
+path="res://.import/zephyria_3.png-626e07ae3ae146f38b0cfae0cdc5726e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/planets/planet13.png"
-dest_files=[ "res://.import/planet13.png-574dee2c28d421a867d2733f4a38e946.stex" ]
+source_file="res://assets/planets/zephyria_3.png"
+dest_files=[ "res://.import/zephyria_3.png-626e07ae3ae146f38b0cfae0cdc5726e.stex" ]
 
 [params]
 

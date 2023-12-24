@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/planet21.png-0714b9de545a0e5c1649717c54fcb9c9.stex"
+path="res://.import/avalon_2.png-c20daed89a5e379e1cba21635ba6c54e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/planets/planet21.png"
-dest_files=[ "res://.import/planet21.png-0714b9de545a0e5c1649717c54fcb9c9.stex" ]
+source_file="res://assets/planets/avalon_2.png"
+dest_files=[ "res://.import/avalon_2.png-c20daed89a5e379e1cba21635ba6c54e.stex" ]
 
 [params]
 

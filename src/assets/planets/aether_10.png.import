@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/planet29.png-e23f5bb2d98677d2d6d4e8ad02c53204.stex"
+path="res://.import/aether_10.png-4c5f02b22f28a1175d76ef768be9515f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/planets/planet29.png"
-dest_files=[ "res://.import/planet29.png-e23f5bb2d98677d2d6d4e8ad02c53204.stex" ]
+source_file="res://assets/planets/aether_10.png"
+dest_files=[ "res://.import/aether_10.png-4c5f02b22f28a1175d76ef768be9515f.stex" ]
 
 [params]
 
