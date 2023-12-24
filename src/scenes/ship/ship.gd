@@ -28,3 +28,10 @@ func on_asteroid_hit(asteroid, body):
 	print("on_asteroid_hit: ", asteroid.name, ', ', body.name)
 	#if asteroid is Asteroid and body == self:
 	#	SpaceshipStateMachine.transition_to("Explode")
+
+func _on_hud_map():
+	if Camera2D.zoom == Vector2(1, 1):
+		Camera2D.zoom = Vector2(10, 10)
+	else:
+		Camera2D.zoom = Vector2(1, 1)
+	

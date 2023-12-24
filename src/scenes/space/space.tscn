@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/space/space.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ship/ship.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/space/spacetile04.png" type="Texture" id=5]
 [ext_resource path="res://assets/space/spacetile05.png" type="Texture" id=6]
 [ext_resource path="res://assets/space/spacetile01.png" type="Texture" id=7]
+[ext_resource path="res://scenes/hud/hud.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/music/music-ambient-01.wav" type="AudioStream" id=9]
 [ext_resource path="res://assets/space/targettile01.png" type="Texture" id=10]
 [ext_resource path="res://scenes/joystick/virtual_joystick.tscn" type="PackedScene" id=13]
@@ -201,4 +202,7 @@ joystick_mode = 1
 visibility_mode = 1
 show_on_touch_only = true
 
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 8 )]
+
 [connection signal="ship_submerged" from="Spaceship" to="." method="_on_Spaceship_ship_submerged"]
+[connection signal="hud_map" from="CanvasLayer/HUD" to="Spaceship" method="_on_hud_map"]

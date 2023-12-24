@@ -6,7 +6,7 @@ extends Node2D
 var GENERATION_RADIUS = 20
 # Tile ID of the target block for visiting the planet
 var TARGET_BOCK_ID = 5
-var MIN_DISTANCE_BETWEEN_PLANETS = 6
+var MIN_DISTANCE_BETWEEN_PLANETS = 5
 
 var Planet = preload("res://scenes/space/planet.tscn")
 
@@ -90,7 +90,7 @@ func sync_parallax_objects():
 
 func find_planet_to_teleport_to():
 	var Planets = $ParallaxBackground/ParallaxLayer/Planets
-	var range_to_teleport = 64
+	var range_to_teleport = 32
 	for planet in Planets.get_children():
 		var distance = Spaceship.position.distance_to(planet.teleport_position)
 		if distance < range_to_teleport:
@@ -116,27 +116,36 @@ func _generate_random_map(seed_value: int):
 	rng.seed = seed_value
 
 	var points = []
-	var num_points = len(PlanetsData.planets)
-	while len(points) < num_points:
-		var tile_position = Vector2(
-			rng.randi_range(-GENERATION_RADIUS, GENERATION_RADIUS), 
-			rng.randi_range(-GENERATION_RADIUS, GENERATION_RADIUS))
+	var current_point = Vector2(0, 0)
+	var directions = [Vector2(1, 0), Vector2(0, 1), Vector2(-1, 0), Vector2(0, -1)]
+	var current_direction_index = 0
+	var current_size = 1
+	var counter = 0
+	# Make a spiral, add points to the points list
+	for planet in PlanetsData.planets:
+		print(current_point)
+		points.append(current_point)
+		var step = rng.randi_range(MIN_DISTANCE_BETWEEN_PLANETS, MIN_DISTANCE_BETWEEN_PLANETS*2)
+		# Testing
+		# var pnt = current_point
+		# for i in range(step):
+		# 	Tileset.set_cellv(pnt, 1)
+		# 	pnt += directions[current_direction_index]
+		# end testing
+		current_point += directions[current_direction_index]*step
+		counter += step
+		if counter > current_size:
+			current_direction_index = (current_direction_index + 1) % len(directions)
+			if current_direction_index % 2 == 0:
+				current_size = counter + MIN_DISTANCE_BETWEEN_PLANETS
+			counter = 0
 
-		# Check if there are neighbours which are too close
-		var is_good = true
-		for other in points:
-			if distance(tile_position, other) < MIN_DISTANCE_BETWEEN_PLANETS:
-				is_good = false
-				break
-		if not is_good:
-			continue
-
-		points.append(tile_position)
-		# Set tile at this position to TARGET_BOCK_ID
-		Tileset.set_cellv(tile_position, TARGET_BOCK_ID)
-		var planet_data = PlanetsData.planets[len(points) - 1]
+	for i in range(len(points)):
+		var point = points[i]
+		Tileset.set_cellv(point, TARGET_BOCK_ID)
+		var planet_data = PlanetsData.planets[i]
 		var planet_id = planet_data["ID"]
-		_add_planet_at_tile_position(tile_position, planet_id)
+		_add_planet_at_tile_position(point, planet_id)
 
 func _add_planet_at_tile_position(tile_position, planet_id):
 	print(tile_position, planet_id)
@@ -148,7 +157,3 @@ func _add_planet_at_tile_position(tile_position, planet_id):
 	var planet_texture = load("res://assets/planets/" + planet_id + ".png")
 	planet.planet_texture = planet_texture
 	Planets.add_child(planet)
-
-func distance(point1, point2):
-	#return sqrt((point1[0] - point2[0])*(point1[0] - point2[0]) + (point1[1] - point2[1])*(point1[1] - point2[1]))
-	return max(abs(point1[0] - point2[0]), abs(point1[1] - point2[1]))
