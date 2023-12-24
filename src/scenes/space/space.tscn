@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scenes/space/space.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ship/ship.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://scenes/space/planet.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/planets/planet02.png" type="Texture" id=12]
 [ext_resource path="res://scenes/joystick/virtual_joystick.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/space/background-galaxy.png" type="Texture" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
 points = PoolVector2Array( 0, 32, 0, 32, 64, 0, 128, 32, 128, 96, 64, 128, 0, 96, 0, 32 )
@@ -174,6 +175,14 @@ anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
+[node name="ParallaxLayerGalaxy" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+motion_scale = Vector2( 0.1, 0.1 )
+
+[node name="GalaxySprite" type="Sprite" parent="ParallaxBackground/ParallaxLayerGalaxy"]
+modulate = Color( 0.290196, 0.290196, 0.290196, 1 )
+texture = ExtResource( 14 )
+
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Planets" type="Node2D" parent="ParallaxBackground/ParallaxLayer"]
@@ -214,9 +223,14 @@ autoplay = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Virtual joystick" parent="CanvasLayer" instance=ExtResource( 13 )]
-margin_left = 148.0
-margin_top = -244.0
-margin_right = 348.0
-margin_bottom = -44.0
+anchor_top = 0.0
+anchor_right = 1.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+joystick_mode = 1
+visibility_mode = 1
+show_on_touch_only = true
 
 [connection signal="ship_submerged" from="Spaceship" to="." method="_on_Spaceship_ship_submerged"]

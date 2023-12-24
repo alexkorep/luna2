@@ -27,6 +27,8 @@ enum VisibilityMode {ALWAYS , TOUCHSCREEN_ONLY }
 
 export(VisibilityMode) var visibility_mode := VisibilityMode.ALWAYS
 
+export var show_on_touch_only := false
+
 # Use Input Actions
 export var use_input_actions := true
 
@@ -67,12 +69,15 @@ onready var _default_color : Color = _tip.modulate
 #### FUNCTIONS ####
 
 func _ready() -> void:
-	if not OS.has_touchscreen_ui_hint() and visibility_mode == VisibilityMode.TOUCHSCREEN_ONLY:
+	if ((not OS.has_touchscreen_ui_hint() and visibility_mode == VisibilityMode.TOUCHSCREEN_ONLY) 
+			or show_on_touch_only):
 		hide()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		if event.pressed:
+			if show_on_touch_only:
+				show()
 			if _is_point_inside_joystick_area(event.position) and _touch_index == -1:
 				if joystick_mode == JoystickMode.DYNAMIC or (joystick_mode == JoystickMode.FIXED and _is_point_inside_base(event.position)):
 					if joystick_mode == JoystickMode.DYNAMIC:
@@ -144,6 +149,8 @@ func _update_input_actions():
 		Input.action_release(action_down)
 
 func _reset():
+	if show_on_touch_only:
+		hide()
 	_pressed = false
 	_output = Vector2.ZERO
 	_touch_index = -1
