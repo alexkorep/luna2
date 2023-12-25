@@ -4,6 +4,7 @@ var WIN_FUNDS = 10_000_000
 
 var funds := 0
 var planet_id: String = ""
+var destination_planet_id: String = ""
 
 var price_vadiance = 0.05
 
