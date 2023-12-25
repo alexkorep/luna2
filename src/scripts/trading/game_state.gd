@@ -1,5 +1,7 @@
 extends Node
 
+var WIN_FUNDS = 10_000_000
+
 var funds := 0
 var planet_id: String = ""
 
@@ -75,6 +77,11 @@ func sell(product_idx: int, quantity: int = 1):
 		planet_quantity[product_idx] += quantity
 		player_quantity[product_idx] -= quantity
 		save_game()
+		check_end_game()
+
+func check_end_game():
+	if funds >= WIN_FUNDS:
+		get_tree().change_scene("res://scenes/ending-win/ending-win.tscn")
 
 func get_current_planet():
 	return PlanetsData.get_planet_by_id(planet_id)

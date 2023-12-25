@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/ui/nine-patch3.png" type="Texture" id=2]
 [ext_resource path="res://assets/ui/button1-pressed.png" type="Texture" id=3]
 [ext_resource path="res://assets/ui/button1.png" type="Texture" id=4]
-[ext_resource path="res://scenes/ending-broke/ending-broke.gd" type="Script" id=5]
+[ext_resource path="res://scenes/ending-win/ending-win.gd" type="Script" id=5]
 
 [node name="EndingWin" type="Control"]
 anchor_right = 1.0
