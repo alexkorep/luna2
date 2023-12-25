@@ -12,4 +12,4 @@ func _ready():
 func _on_TravelButton_pressed():
 	GameState.set_planet_id(planet_id)
 	# warning-ignore:return_value_discarded
-	get_tree().change_scene("res://scenes/planet_screen/panet_screen.tscn")
+	get_tree().change_scene("res://scenes/shmup_screen/shmup_screen.tscn")
