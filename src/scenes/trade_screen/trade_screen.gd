@@ -42,10 +42,6 @@ func fill_goods():
 			ProductsVBoxContainer.add_child(trade_item_instance)
 		i += 1
 
-func _on_PlayTextureButton_pressed():
-	get_tree().change_scene("res://scenes/space/space.tscn")
-
-
 func _on_trade_item_buy(product_idx):
 	GameState.buy(product_idx)
 	fill_goods()
@@ -53,3 +49,6 @@ func _on_trade_item_buy(product_idx):
 func _on_trade_item_sell(product_idx):
 	GameState.sell(product_idx)
 	fill_goods()
+
+func _on_BackButton_pressed():
+	get_tree().change_scene("res://scenes/planet_screen/panet_screen.tscn")

@@ -106,7 +106,7 @@ func move_player_to_planet(planet_id_str):
 
 func _on_Spaceship_ship_submerged():
 	# TODO Save the planet to the global state
-	get_tree().change_scene("res://scenes/trade_screen/trade_screen.tscn")
+	get_tree().change_scene("res://scenes/planet_screen/panet_screen.tscn")
 
 func _generate_random_map(seed_value: int):
 	if Engine.editor_hint:
