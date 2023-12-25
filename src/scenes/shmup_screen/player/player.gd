@@ -3,6 +3,7 @@ extends KinematicBody2D
 signal end_animation_finished
 
 export var max_speed := 200.0
+export var shield = 100.0
 
 onready var PlayerStateMachine = $PlayerStateMachine
 onready var Explosion = $Explosion

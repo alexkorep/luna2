@@ -10,6 +10,6 @@ func _ready():
 	$HBoxContainer/LevelLabel.text = str(planet['TechLevel'])
 
 func _on_TravelButton_pressed():
-	GameState.destination_planet_id = planet_id
+	Travel.start_travel(planet_id, 1)
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://scenes/shmup_screen/shmup_screen.tscn")

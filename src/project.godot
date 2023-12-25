@@ -9,16 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Reference",
-"class": "Market",
-"language": "GDScript",
-"path": "res://scripts/trading/market.gd"
-}, {
-"base": "Reference",
-"class": "Player",
-"language": "GDScript",
-"path": "res://scripts/trading/player.gd"
-}, {
 "base": "StateMachine",
 "class": "PlayerStateMachine",
 "language": "GDScript",
@@ -50,8 +40,6 @@ _global_script_classes=[ {
 "path": "res://scenes/joystick/virtual_joystick.gd"
 } ]
 _global_script_class_icons={
-"Market": "",
-"Player": "",
 "PlayerStateMachine": "",
 "Spaceship": "",
 "SpaceshipStateMachine": "",
@@ -71,6 +59,7 @@ config/icon="res://icon2.png"
 PlanetsData="*res://scripts/trading/planets_data.gd"
 GoodsData="*res://scripts/trading/goods_data.gd"
 GameState="*res://scripts/trading/game_state.gd"
+Travel="*res://scripts/travel/travel.gd"
 
 [display]
 

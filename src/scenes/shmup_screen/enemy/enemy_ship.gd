@@ -1,16 +1,58 @@
-extends Node2D
+extends Area2D
+
+signal died 
+
+var start_pos = Vector2.ZERO
+var speed = 0
+var bullet_scene = preload("res://scenes/shmup_screen/enemy/enemy_bullet.tscn")
+var anchor
+var follow_anchor = false
+var rng = RandomNumberGenerator.new()
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var screensize  = get_viewport_rect().size
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	rng.randomize()
 
+func start(pos):
+	follow_anchor = false
+	speed = 0
+	#position = Vector2(pos.x, pos.y)
+	# start_pos = pos
+	# await get_tree().create_timer(randf_range(0.25, 0.55)).timeout
+	# var tw = create_tween().set_trans(Tween.TRANS_BACK)
+	# tw.tween_property(self, "position:y", start_pos.y, 1.4)
+	# await tw.finished
+	position = pos
+	follow_anchor = true
+	$MoveTimer.wait_time = rng.randf_range(5, 20)
+	$MoveTimer.start()
+	$ShootTimer.wait_time = rng.randf_range(4, 20)
+	$ShootTimer.start()
+	
+func _process(delta):
+	if follow_anchor:
+		position = start_pos + anchor.position
+	position.y += speed * delta
+	if position.y > screensize.y + 32:
+		start(start_pos)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func explode():
+	speed = 0
+	# $AnimationPlayer.play("explode")
+	# set_deferred("monitorable", false)
+	# died.emit(5)
+	# await $AnimationPlayer.animation_finished
+	queue_free()
+
+func _on_timer_timeout():
+	speed = rng.randf_range(75, 100)
+	follow_anchor = false
+
+func _on_shoot_timer_timeout():
+	var b = bullet_scene.instance()
+	get_tree().root.add_child(b)
+	b.start(position)
+	$ShootTimer.wait_time = rng.randf_range(4, 20)
+	$ShootTimer.start()
