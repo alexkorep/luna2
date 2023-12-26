@@ -5,27 +5,17 @@ var time = 0
 
 var progress = 0.0
 
-var enemy = preload("res://scenes/shmup_screen/enemy/enemy_ship.tscn")
 
 # astroclicks persecond
 var speed = 0.01 
 
+onready var Player = $Player
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# TODO replace with particles
 	$Background.get_material().set_shader_param("speed_scale", 0.1)
-	spawn_enemies()
 
-func spawn_enemies():
-	for x in range(9):
-		for y in range(3):
-			var e = enemy.instance()
-			var pos = Vector2(x * (16 + 8) + 24, 16 * 4 + y * 16)
-			add_child(e)
-			e.start(pos)
-			e.anchor = $EnemyAnchor
-			# subscribe died event
-			e.connect("died", self, "_on_enemy_died")
-			
 func _on_enemy_died(value):
 	pass
 	#score += value
@@ -39,6 +29,7 @@ func _process(delta):
 	if is_paused == false:
 		$Background.get_material().set_shader_param("time", time)
 		time += delta
+	$EnemyFormations/Invaders.set_player_pos(Player.position)
 
 func _on_Timer_timeout():
 	var distance = Travel.travel_distance
@@ -52,4 +43,11 @@ func _on_Timer_timeout():
 
 func _on_Player_end_animation_finished():
 	GameState.set_planet_id(Travel.travel_destination_planet_id)
+	# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://scenes/planet_screen/panet_screen.tscn")
+
+
+func _on_Player_ship_exploded():
+	# TODO do we need a separate screen? Should we restart the level?
+	#get_tree().change_scene("res://scenes/planet_screen/panet_screen.tscn")
+	get_tree().reload_current_scene()

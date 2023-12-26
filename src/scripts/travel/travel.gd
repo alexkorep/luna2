@@ -2,7 +2,7 @@ extends Node
 
 var travel_destination_planet_id = "zarmina_5"
 # Distance in astroclicks
-var travel_distance = 1.0
+var travel_distance = 1000.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

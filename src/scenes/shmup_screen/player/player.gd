@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal end_animation_finished
+signal ship_exploded
 
 export var max_speed := 200.0
 export var shield = 100.0
@@ -13,6 +14,9 @@ onready var Ship = $Ship
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
+
+func kill():
+	PlayerStateMachine.transition_to("Explode")
 
 func emit_ship_exploded():
 	emit_signal("ship_exploded")

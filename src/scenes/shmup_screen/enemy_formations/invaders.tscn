@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/shmup_screen/enemy/enemy_ship.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/shmup_screen/enemy_formations/invaders.gd" type="Script" id=2]
+
+[node name="Invaders" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Ships" type="Node2D" parent="."]
+
+[node name="EnemyShip01" parent="Ships" instance=ExtResource( 1 )]
+position = Vector2( 72, 72 )
+
+[node name="EnemyShip02" parent="Ships" instance=ExtResource( 1 )]
+position = Vector2( 144, 72 )
+
+[node name="EnemyShip03" parent="Ships" instance=ExtResource( 1 )]
+position = Vector2( 216, 72 )
+
+[node name="EnemyShip04" parent="Ships" instance=ExtResource( 1 )]
+position = Vector2( 288, 72 )
+
+[node name="EnemyShip05" parent="Ships" instance=ExtResource( 1 )]
+position = Vector2( 72, 180 )
+
+[node name="EnemyShip06" parent="Ships" instance=ExtResource( 1 )]
+position = Vector2( 144, 180 )
+
+[node name="EnemyShip07" parent="Ships" instance=ExtResource( 1 )]
+position = Vector2( 216, 180 )
+
+[node name="EnemyShip08" parent="Ships" instance=ExtResource( 1 )]
+position = Vector2( 288, 180 )
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2( 190, -57 )
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
