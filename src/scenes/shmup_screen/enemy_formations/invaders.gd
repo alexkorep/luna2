@@ -1,5 +1,6 @@
 extends Node2D
 
+signal all_ships_killed
 
 var ships_spawned := 0
 
@@ -7,8 +8,19 @@ var ships_spawned := 0
 func _ready():
 	var ships = $Ships.get_children()
 	for ship in ships:
+		ship.connect("died", self, "on_enemy_died")
 		ship.hide()
 
+func _process(delta):
+	# Check if all enemies are gone
+	var count = len($Ships.get_children())
+	if count == 0:
+		emit_signal("all_ships_killed")
+
+func on_enemy_died():
+	# TODO update counter or something
+	pass
+	
 func set_player_pos(pos):
 	var ships = $Ships.get_children()
 	for ship in ships:

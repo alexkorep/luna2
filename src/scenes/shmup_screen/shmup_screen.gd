@@ -31,16 +31,6 @@ func _process(delta):
 		time += delta
 	$EnemyFormations/Invaders.set_player_pos(Player.position)
 
-func _on_Timer_timeout():
-	var distance = Travel.travel_distance
-	var seconds = distance / speed
-	var percents_per_second = 100.0 / seconds 
-	progress += percents_per_second
-	if progress > 100:
-		$Player.end()
-		$Timer.stop()
-		progress = 100
-
 func _on_Player_end_animation_finished():
 	GameState.set_planet_id(Travel.travel_destination_planet_id)
 	# warning-ignore:return_value_discarded
@@ -50,3 +40,8 @@ func _on_Player_ship_exploded():
 	# TODO do we need a separate screen? Should we restart the level?
 	#get_tree().change_scene("res://scenes/planet_screen/panet_screen.tscn")
 	get_tree().reload_current_scene()
+
+
+func _on_Invaders_all_ships_killed():
+	# End the level
+	$Player.end()

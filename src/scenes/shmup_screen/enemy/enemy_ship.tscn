@@ -50,6 +50,7 @@ scale_amount_random = 1.0
 color_ramp = SubResource( 3 )
 
 [node name="ShootTimer" type="Timer" parent="."]
+wait_time = 8.0
 
 [node name="ExplodeTimer" type="Timer" parent="."]
 

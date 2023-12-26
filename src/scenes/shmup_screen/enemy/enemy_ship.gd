@@ -23,7 +23,9 @@ func enemy_kill():
 	StateMachine.transition_to("Exploding")
 
 func _on_EnemyShip_body_entered(body):
-	print("_on_EnemyShip_body_entered")
 	if body.has_method("kill"):
-	# Killing the player
+		# Killing the player
 		body.kill()
+
+func emit_signal_died():
+	emit_signal("died")

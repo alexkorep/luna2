@@ -2,8 +2,8 @@ extends State
 
 var velocity = Vector2.ZERO
 var tween = Tween.new()
-var shoot_timeout_min = 1
-var shoot_timeout_max = 4
+var shoot_timeout_min = 8
+var shoot_timeout_max = 12
 
 var rng = RandomNumberGenerator.new()
 var bullet_scene = preload("res://scenes/shmup_screen/enemy/enemy_bullet.tscn")

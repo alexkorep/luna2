@@ -51,10 +51,7 @@ joystick_mode = 1
 show_on_touch_only = true
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
-
-[node name="ProgressUpdateTimer" type="Timer" parent="."]
-wait_time = 0.05
-autostart = true
+visible = false
 
 [node name="EnemyFormations" type="Node2D" parent="."]
 
@@ -62,4 +59,4 @@ autostart = true
 
 [connection signal="end_animation_finished" from="Player" to="." method="_on_Player_end_animation_finished"]
 [connection signal="ship_exploded" from="Player" to="." method="_on_Player_ship_exploded"]
-[connection signal="timeout" from="ProgressUpdateTimer" to="." method="_on_Timer_timeout"]
+[connection signal="all_ships_killed" from="EnemyFormations/Invaders" to="." method="_on_Invaders_all_ships_killed"]
