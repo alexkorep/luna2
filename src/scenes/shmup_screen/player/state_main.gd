@@ -2,9 +2,20 @@ extends State
 
 var velocity = Vector2.ZERO
 
+var bullet_scene = preload("res://scenes/shmup_screen/player/player_bullet.tscn")
+
 # Upon entering the state, we set the Player node's velocity to zero.
 func enter(_msg := {}) -> void:
-	pass
+	# TODO would it connect multiple times if we enter this mode multiple times?
+	# Should connect be moved to _on_ready?
+	owner.ShootTimer.connect("timeout", self, "on_shoot_timer")
+	owner.ShootTimer.start()
+	on_shoot_timer()
+	
+func on_shoot_timer():
+	var b = bullet_scene.instance()
+	get_tree().root.add_child(b)
+	b.start(owner.GunPosition.global_position)
 
 func update(delta: float) -> void:
 	var direction = Vector2.ZERO
@@ -24,5 +35,5 @@ func update(delta: float) -> void:
 	owner.position.y = clamp(owner.position.y, 0, viewport_rect.size.y)
 
 func exit() -> void:
-	pass
+	owner.ShootTimer.stop()
 	

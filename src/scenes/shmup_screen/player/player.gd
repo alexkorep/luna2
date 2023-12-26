@@ -10,6 +10,8 @@ onready var PlayerStateMachine = $PlayerStateMachine
 onready var Explosion = $Explosion
 onready var ExplosionParticles = $Explosion/ExplosionParticles
 onready var Ship = $Ship
+onready var ShootTimer = $ShootTimer
+onready var GunPosition = $Ship/GunPosition
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -46,7 +46,6 @@ func _on_Player_end_animation_finished():
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://scenes/planet_screen/panet_screen.tscn")
 
-
 func _on_Player_ship_exploded():
 	# TODO do we need a separate screen? Should we restart the level?
 	#get_tree().change_scene("res://scenes/planet_screen/panet_screen.tscn")
