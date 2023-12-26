@@ -12,7 +12,7 @@ func _process(delta):
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
 
-func _on_PlayerBullet_body_entered(body):
-	if body.has_method("enemy_kill"):
-		body.enemy_kill()
+func _on_PlayerBullet_area_entered(area):
+	if area.has_method("enemy_kill"):
+		area.enemy_kill()
 		queue_free()

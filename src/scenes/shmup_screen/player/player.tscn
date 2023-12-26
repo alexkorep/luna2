@@ -74,7 +74,7 @@ region_enabled = true
 region_rect = Rect2( 3.08962, 467.687, 168.595, 151.336 )
 
 [node name="GunPosition" type="Node2D" parent="Ship"]
-position = Vector2( 0, -36 )
+position = Vector2( 0, -53 )
 
 [node name="ShootTimer" type="Timer" parent="."]
 

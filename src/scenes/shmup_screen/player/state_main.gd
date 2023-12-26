@@ -21,7 +21,7 @@ func update(delta: float) -> void:
 	var direction = Vector2.ZERO
 	direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-	var new_velocity = direction.normalized()*owner.max_speed * 60
+	var new_velocity = direction*owner.max_speed * 60
 
 	if (new_velocity != velocity):
 		velocity = new_velocity

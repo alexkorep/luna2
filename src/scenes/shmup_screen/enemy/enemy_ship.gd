@@ -8,6 +8,7 @@ onready var StateMachine = $StateMachine
 onready var ExplodeTimer = $ExplodeTimer
 onready var ExplosionParticles = $ExplosionParticles
 onready var ShipObject = $ShipObject
+onready var CollisionShape2D = $CollisionShape2D
 
 func _ready():
 	pass
