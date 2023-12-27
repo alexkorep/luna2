@@ -5,6 +5,7 @@ onready var WelcomeLabel = $NinePatchRect/MarginContainer/MainVBoxContainer/Welc
 onready var LevelLabel = $NinePatchRect/MarginContainer/MainVBoxContainer/LevelRow/LevelLabel
 onready var FundsLabel = $NinePatchRect/MarginContainer/MainVBoxContainer/FuncsRow/FundsLabel
 onready var DescriptionLabel = $NinePatchRect/MarginContainer/MainVBoxContainer/PanetDescriptionRow/DescriptionLabel
+onready var RetireButton = $NinePatchRect/MarginContainer/MainVBoxContainer/RetireButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,6 +15,7 @@ func _ready():
 	LevelLabel.text = str(planet["TechLevel"])
 	FundsLabel.text = str(GameState.funds) + ' cr'
 	DescriptionLabel.text = planet["Description"]
+	RetireButton.visible = GameState.check_can_retire()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,3 +32,7 @@ func _on_TradeButton_pressed():
 
 func _on_SpaceButton_pressed():
 	get_tree().change_scene("res://scenes/space/space.tscn")
+
+
+func _on_RetireButton_pressed():
+	get_tree().change_scene("res://scenes/ending-win/ending-win.tscn")

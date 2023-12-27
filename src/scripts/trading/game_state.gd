@@ -77,7 +77,6 @@ func sell(product_idx: int, quantity: int = 1):
 		planet_quantity[product_idx] += quantity
 		player_quantity[product_idx] -= quantity
 		save_game()
-		check_end_game()
 
 func get_max_buy_qty(product_idx: int):
 	var price = prices[product_idx]
@@ -88,9 +87,8 @@ func get_max_buy_qty(product_idx: int):
 func get_max_sell_qty(product_idx: int):
 	return player_quantity[product_idx]
 
-func check_end_game():
-	if funds >= WIN_FUNDS:
-		get_tree().change_scene("res://scenes/ending-win/ending-win.tscn")
+func check_can_retire():
+	return funds >= WIN_FUNDS
 
 func get_current_planet():
 	return PlanetsData.get_planet_by_id(planet_id)
