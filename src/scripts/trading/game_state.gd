@@ -79,6 +79,15 @@ func sell(product_idx: int, quantity: int = 1):
 		save_game()
 		check_end_game()
 
+func get_max_buy_qty(product_idx: int):
+	var price = prices[product_idx]
+	var max_buy = int(funds/price)
+	# TODO take the cargo ship size into account
+	return min(max_buy, planet_quantity[product_idx])
+
+func get_max_sell_qty(product_idx: int):
+	return player_quantity[product_idx]
+
 func check_end_game():
 	if funds >= WIN_FUNDS:
 		get_tree().change_scene("res://scenes/ending-win/ending-win.tscn")
