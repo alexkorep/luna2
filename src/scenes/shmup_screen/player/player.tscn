@@ -12,7 +12,7 @@
 [ext_resource path="res://assets/ui/bullet-point.png" type="Texture" id=10]
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 40.4475
+radius = 30.0666
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
