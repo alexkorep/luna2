@@ -6,7 +6,6 @@ var current_mouse_position = Vector2.ZERO
 
 var bullet_scene = preload("res://scenes/shmup_screen/player/player_bullet.tscn")
 
-# Upon entering the state, we set the Player node's velocity to zero.
 func enter(_msg := {}) -> void:
 	# TODO would it connect multiple times if we enter this mode multiple times?
 	# Should connect be moved to _on_ready?
@@ -14,7 +13,7 @@ func enter(_msg := {}) -> void:
 	owner.ShootTimer.start()
 	on_shoot_timer()
 	owner.emit_player_ready()
-	
+
 func on_shoot_timer():
 	var b = bullet_scene.instance()
 	get_tree().root.add_child(b)
@@ -28,11 +27,11 @@ func update(delta: float) -> void:
 	var move_vector = expected_ship_position - owner.position
 	if move_vector.length() < 5:
 		# Do not move
-		move_vector = Vector2.ZERO
+		return
 
-	var velocity = move_vector.normalized()*owner.max_speed * 60
+	var velocity = move_vector.normalized() * owner.max_speed * 60
 	if velocity != Vector2.ZERO:
-		owner.move_and_slide(velocity*delta)
+		owner.move_and_slide(velocity * delta)
 
 	# Keep the player within the screen
 	var viewport_rect = owner.get_viewport_rect()
@@ -41,15 +40,10 @@ func update(delta: float) -> void:
 
 func handle_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.pressed:
-			mouse_pressed_position = event.position
-			mouse_pressed_ship_position = owner.position
-		else:
-			mouse_pressed_position = Vector2.ZERO
-			mouse_pressed_ship_position = Vector2.ZERO
+		mouse_pressed_position = event.position if event.pressed else Vector2.ZERO
+		mouse_pressed_ship_position = owner.position if event.pressed else Vector2.ZERO
 	elif event is InputEventMouseMotion and event.button_mask == 1:
 		current_mouse_position = event.position
 
 func exit() -> void:
 	owner.ShootTimer.stop()
-	
