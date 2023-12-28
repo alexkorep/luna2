@@ -6,6 +6,9 @@ signal ship_exploded
 export var max_speed := 200.0
 export var shield = 100.0
 
+# This is about a movement target, not shooting :-)
+export var debug_target = false
+
 onready var PlayerStateMachine = $PlayerStateMachine
 onready var Explosion = $Explosion
 onready var ExplosionParticles = $Explosion/ExplosionParticles
@@ -16,7 +19,7 @@ onready var Target = $Target
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	Target.visible = debug_target
 
 func kill():
 	PlayerStateMachine.transition_to("Explode")
