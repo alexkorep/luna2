@@ -29,6 +29,11 @@ func update(delta: float) -> void:
 	var owner_position = owner.position
 	var target_x = viewport_size.x/2 + action_x * viewport_size.x/2 if action_x else owner_position.x
 	var target_y = viewport_size.y/2 + action_y * viewport_size.y/2 if action_y else owner_position.y
+	var threshold = 10
+	if (abs(target_x - owner_position.x) < threshold):
+		target_x = owner_position.x
+	if (abs(target_y - owner_position.y) < threshold):
+		target_y = owner_position.y
 	owner.Target.global_position = Vector2(target_x, target_y)
 
 	var direction = (Vector2(target_x, target_y) - owner.position).normalized()
