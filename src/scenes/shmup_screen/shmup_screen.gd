@@ -10,6 +10,7 @@ var progress = 0.0
 var speed = 0.01 
 
 onready var Player = $Player
+onready var Invaders = $EnemyFormations/Invaders
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,7 +42,9 @@ func _on_Player_ship_exploded():
 	#get_tree().change_scene("res://scenes/planet_screen/panet_screen.tscn")
 	get_tree().reload_current_scene()
 
-
 func _on_Invaders_all_ships_killed():
 	# End the level
-	$Player.end()
+	Player.end()
+
+func _on_Player_player_ready():
+	Invaders.start()

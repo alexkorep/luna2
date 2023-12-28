@@ -58,5 +58,6 @@ visible = false
 [node name="Invaders" parent="EnemyFormations" instance=ExtResource( 6 )]
 
 [connection signal="end_animation_finished" from="Player" to="." method="_on_Player_end_animation_finished"]
+[connection signal="player_ready" from="Player" to="." method="_on_Player_player_ready"]
 [connection signal="ship_exploded" from="Player" to="." method="_on_Player_ship_exploded"]
 [connection signal="all_ships_killed" from="EnemyFormations/Invaders" to="." method="_on_Invaders_all_ships_killed"]

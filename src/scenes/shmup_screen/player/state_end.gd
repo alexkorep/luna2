@@ -4,9 +4,10 @@ var velocity = Vector2.ZERO
 var tween = Tween.new()
 
 func enter(_msg := {}) -> void:
+	owner.show_ship_trail = true
 	owner.add_child(tween)
 	var start_position = owner.position
-	var end_position = Vector2(owner.position.x, 0)
+	var end_position = Vector2(owner.position.x, -owner.get_viewport_rect().size.y)
 	tween.interpolate_property(
 		owner, "position", start_position, end_position, 1, 
 		Tween.TRANS_CUBIC, Tween.EASE_IN
@@ -15,7 +16,7 @@ func enter(_msg := {}) -> void:
 	tween.start()
 
 func exit() -> void:
-	pass
+	owner.show_ship_trail = false
 
 func _on_tween_completed(object, key):
 	owner.emit_end_animation_finished()

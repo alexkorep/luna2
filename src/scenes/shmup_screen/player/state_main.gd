@@ -11,6 +11,7 @@ func enter(_msg := {}) -> void:
 	owner.ShootTimer.connect("timeout", self, "on_shoot_timer")
 	owner.ShootTimer.start()
 	on_shoot_timer()
+	owner.emit_player_ready()
 	
 func on_shoot_timer():
 	var b = bullet_scene.instance()
