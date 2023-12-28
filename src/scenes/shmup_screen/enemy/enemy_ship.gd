@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 
 signal died 
 export var target_position = Vector2.ZERO
@@ -8,9 +8,9 @@ onready var StateMachine = $StateMachine
 onready var ExplodeTimer = $ExplodeTimer
 onready var ExplosionParticles = $ExplosionParticles
 onready var ShipObject = $ShipObject
-onready var CollisionShape2D = $CollisionShape2D
-onready var GunPositon = $GunPositon
-
+onready var CollisionShape2D = $ShipObject/CollisionShape2D
+onready var GunPositon = $ShipObject/GunPositon
+onready var FormationAnimationPlayer = $FormationAnimationPlayer
 func _ready():
 	pass
 	
