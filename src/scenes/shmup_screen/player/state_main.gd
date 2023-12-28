@@ -1,8 +1,8 @@
 extends State
 
-var velocity = Vector2.ZERO
-
 var mouse_pressed_position = Vector2.ZERO
+var mouse_pressed_ship_position = Vector2.ZERO
+var current_mouse_position = Vector2.ZERO
 
 var bullet_scene = preload("res://scenes/shmup_screen/player/player_bullet.tscn")
 
@@ -21,14 +21,16 @@ func on_shoot_timer():
 	b.start(owner.GunPosition.global_position)
 
 func update(delta: float) -> void:
-	var direction = Vector2.ZERO
-	direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-	var new_velocity = direction*owner.max_speed * 60
+	if mouse_pressed_position == Vector2.ZERO:
+		return
 
-	if (new_velocity != velocity):
-		velocity = new_velocity
+	var expected_ship_position = mouse_pressed_ship_position + current_mouse_position - mouse_pressed_position
+	var move_vector = expected_ship_position - owner.position
+	if move_vector.length() < 5:
+		# Do not move
+		move_vector = Vector2.ZERO
 
+	var velocity = move_vector.normalized()*owner.max_speed * 60
 	if velocity != Vector2.ZERO:
 		owner.move_and_slide(velocity*delta)
 
@@ -38,11 +40,15 @@ func update(delta: float) -> void:
 	owner.position.y = clamp(owner.position.y, 0, viewport_rect.size.y)
 
 func handle_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton:
+		if event.pressed:
 			mouse_pressed_position = event.position
+			mouse_pressed_ship_position = owner.position
+		else:
+			mouse_pressed_position = Vector2.ZERO
+			mouse_pressed_ship_position = Vector2.ZERO
 	elif event is InputEventMouseMotion and event.button_mask == 1:
-			owner.position += event.position - mouse_pressed_position
-			mouse_pressed_position = event.position
+		current_mouse_position = event.position
 
 func exit() -> void:
 	owner.ShootTimer.stop()
