@@ -2,6 +2,8 @@ extends State
 
 var velocity = Vector2.ZERO
 
+var mouse_pressed_position = Vector2.ZERO
+
 var bullet_scene = preload("res://scenes/shmup_screen/player/player_bullet.tscn")
 
 # Upon entering the state, we set the Player node's velocity to zero.
@@ -34,6 +36,13 @@ func update(delta: float) -> void:
 	var viewport_rect = owner.get_viewport_rect()
 	owner.position.x = clamp(owner.position.x, 0, viewport_rect.size.x)
 	owner.position.y = clamp(owner.position.y, 0, viewport_rect.size.y)
+
+func handle_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+			mouse_pressed_position = event.position
+	elif event is InputEventMouseMotion and event.button_mask == 1:
+			owner.position += event.position - mouse_pressed_position
+			mouse_pressed_position = event.position
 
 func exit() -> void:
 	owner.ShootTimer.stop()

@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/shmup/background01.png" type="Texture" id=1]
 [ext_resource path="res://scenes/shmup_screen/player/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/joystick/virtual_joystick.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/shmup_screen/hud/hud.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/shmup_screen/shmup_screen.gd" type="Script" id=5]
 [ext_resource path="res://scenes/shmup_screen/enemy_formations/invaders.tscn" type="PackedScene" id=6]
@@ -28,6 +27,7 @@ shader_param/time = null
 [node name="ShmupScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource( 5 )
 
 [node name="Background" type="Sprite" parent="."]
@@ -40,18 +40,9 @@ region_rect = Rect2( 546.591, 321.173, 387.824, 1168.54 )
 position = Vector2( 180, 519 )
 max_speed = 500.0
 
-[node name="Virtual joystick" parent="." instance=ExtResource( 3 )]
-anchor_top = 0.0
-anchor_right = 1.0
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 0.0
-margin_bottom = 0.0
-joystick_mode = 1
-show_on_touch_only = true
-
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 visible = false
+mouse_filter = 1
 
 [node name="EnemyFormations" type="Node2D" parent="."]
 
