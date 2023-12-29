@@ -7,6 +7,8 @@ var planet_id: String = ""
 
 var price_vadiance = 0.05
 
+# TODO add an option to choose the seed or change it
+# Make new seed for a new game
 var map_generation_seed = 283777479
 
 # array of prices for each good
