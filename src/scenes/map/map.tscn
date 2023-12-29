@@ -31,3 +31,5 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="Planets" type="Node2D" parent="."]
