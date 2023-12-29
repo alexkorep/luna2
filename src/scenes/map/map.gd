@@ -38,3 +38,6 @@ func planet_clicked(planet_id):
 	print("Planet clicked: " + str(planet_id))
 	set_selected_planet(planet_id)
 
+func _on_BackButton_pressed():
+	get_tree().change_scene("res://scenes/planet_screen/panet_screen.tscn")
+

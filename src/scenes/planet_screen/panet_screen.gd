@@ -24,15 +24,10 @@ func _ready():
 
 
 func _on_MapButton_pressed():
-	get_tree().change_scene("res://scenes/planet_list_screen/planet_list_screen.tscn")
+	get_tree().change_scene("res://scenes/map/map.tscn")
 
 func _on_TradeButton_pressed():
 	get_tree().change_scene("res://scenes/trade_screen/trade_screen.tscn")
-
-
-func _on_SpaceButton_pressed():
-	get_tree().change_scene("res://scenes/space/space.tscn")
-
 
 func _on_RetireButton_pressed():
 	get_tree().change_scene("res://scenes/ending-win/ending-win.tscn")
