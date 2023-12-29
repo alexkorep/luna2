@@ -30,5 +30,10 @@ func add_planets():
 		var planet_instance = planet_scene.instance()
 		var pos = planet_positions[idx]
 		planet_instance.position = pos
+		planet_instance.planet_id = planet["ID"]
+		planet_instance.connect("planet_clicked", self, "planet_clicked")
 		Planets.add_child(planet_instance)
 		idx += 1
+
+func planet_clicked(planet_id):
+	print("Planet clicked: " + str(planet_id))

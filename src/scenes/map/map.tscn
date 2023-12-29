@@ -6,6 +6,7 @@
 [node name="Map" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource( 2 )
 
 [node name="Cross" type="CanvasLayer" parent="."]
@@ -24,6 +25,7 @@ default_color = Color( 0, 0.501961, 0, 1 )
 [node name="GalaxySprite" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 7
@@ -33,6 +35,7 @@ stretch_mode = 7
 [node name="Panel" type="ColorRect" parent="Background"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
 [node name="Planets" type="Node2D" parent="."]
