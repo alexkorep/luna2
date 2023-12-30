@@ -24,3 +24,8 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	elif anim_name == "Exit":
 		pass
 		# TODO report that the ship is gone
+
+func set_player_pos(_pos):
+	# Not yet implemented
+	pass
+		

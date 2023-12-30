@@ -25,9 +25,9 @@ func update(delta: float) -> void:
 
 	var expected_ship_position = mouse_pressed_ship_position + current_mouse_position - mouse_pressed_position
 	var move_vector = expected_ship_position - owner.position
-	if move_vector.length() < 5:
-		# Do not move
-		return
+	# if move_vector.length() < 5:
+	# 	# Do not move
+	# 	return
 
 	var velocity = move_vector.normalized() * owner.max_speed * 60
 	if velocity != Vector2.ZERO:

@@ -1,6 +1,6 @@
 extends Node2D
 
-signal all_ships_killed
+signal finished
 
 var ships_spawned := 0
 var end_signal_emitted := false
@@ -11,12 +11,13 @@ func _ready():
 	for ship in ships:
 		ship.connect("died", self, "on_enemy_died")
 		ship.hide()
+	$SpawnTimer.start()
 
 func _process(delta):
 	# Check if all enemies are gone
 	var count = len($Ships.get_children())
 	if count == 0 and !end_signal_emitted:
-		emit_signal("all_ships_killed")
+		emit_signal("finished")
 		end_signal_emitted = true
 
 func on_enemy_died():
@@ -36,6 +37,3 @@ func _on_SpawnTimer_timeout():
 	var ship = ships[ships_spawned]
 	ship.start(spawn_position)
 	ships_spawned += 1
-
-func start():
-	$SpawnTimer.start()

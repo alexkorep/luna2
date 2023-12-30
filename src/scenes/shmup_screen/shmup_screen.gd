@@ -9,28 +9,49 @@ var progress = 0.0
 # astroclicks persecond
 var speed = 0.01 
 
+export var waves_count = 3
+var current_wave = 0
+var current_formation = null
+
 onready var Player = $Player
-onready var Invaders = $EnemyFormations/Invaders
+onready var WaveLabel = $WaveLabel
 
-# Called when the node enters the scene tree for the first time.
+var formation_scenes = [
+	preload("res://scenes/shmup_screen/enemy_formations/invaders.tscn"),
+	#preload("res://scenes/shmup_screen/enemy_formations/asteroids/asteroids.tscn"),
+	#preload("res://scenes/shmup_screen/enemy_formations/single_ship/single_ship.tscn"),
+]
+
 func _ready():
-	# TODO replace with particles
 	$Background.get_material().set_shader_param("speed_scale", 0.1)
+	current_wave = 0
+	update_wave_label()
 
-func _on_enemy_died(value):
+func update_wave_label():
+	WaveLabel.text = "Wave " + str(current_wave + 1) + "/" + str(waves_count)
+
+# Formation events
+#
+func _on_enemy_died():
+	# TODO add score
 	pass
-	#score += value
-	#$CanvasLayer/UI.update_score(score)
-	#$Camera2D.add_trauma(0.5)
 
+func _on_wave_finished():
+	if current_wave < waves_count - 1:
+		current_wave += 1
+		next_wave()
+	else:
+		# End the level
+		Player.end()
+	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$HUD.progress = progress
 	if is_paused == false:
 		$Background.get_material().set_shader_param("time", time)
 		time += delta
-	$EnemyFormations/Invaders.set_player_pos(Player.position)
+	if current_formation != null:
+		current_formation.set_player_pos(Player.position)
 
 func _on_Player_end_animation_finished():
 	GameState.set_planet_id(Travel.travel_destination_planet_id)
@@ -42,9 +63,16 @@ func _on_Player_ship_exploded():
 	#get_tree().change_scene("res://scenes/planet_screen/panet_screen.tscn")
 	get_tree().reload_current_scene()
 
-func _on_Invaders_all_ships_killed():
-	# End the level
-	Player.end()
-
 func _on_Player_player_ready():
-	Invaders.start()
+	next_wave()
+
+func next_wave():
+
+	if current_formation != null:
+		current_formation.queue_free()
+	var formation_num = randi() % formation_scenes.size()
+	current_formation = formation_scenes[formation_num].instance()
+	current_formation.connect("finished", self, "_on_wave_finished")
+	current_formation.connect("enemy_died", self, "_on_enemy_died")
+	add_child(current_formation)
+	update_wave_label()
