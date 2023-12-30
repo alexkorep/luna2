@@ -1,67 +1,65 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/trade_screen/trade_item.gd" type="Script" id=1]
-[ext_resource path="res://assets/ui/bullet-point.png" type="Texture" id=2]
+[ext_resource path="res://resources/themes/main_theme.tres" type="Theme" id=3]
 
 [node name="TradeItem" type="Control"]
 anchor_right = 1.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 0, 32 )
+margin_bottom = 51.0
+rect_min_size = Vector2( 0, 51 )
 mouse_filter = 1
 size_flags_horizontal = 3
+theme = ExtResource( 3 )
 script = ExtResource( 1 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Panel" type="Button" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+toggle_mode = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="BulletPointSpaceHolder" type="Control" parent="HBoxContainer"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
+[node name="SpacerControl" type="Control" parent="Panel/HBoxContainer"]
+margin_right = 20.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 20, 0 )
 
-[node name="BulletPointTextureRect" type="TextureRect" parent="HBoxContainer/BulletPointSpaceHolder"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_min_size = Vector2( 32, 0 )
-texture = ExtResource( 2 )
-stretch_mode = 4
-
-[node name="ProductLabel" type="Label" parent="HBoxContainer"]
-margin_left = 36.0
+[node name="ProductLabel" type="Label" parent="Panel/HBoxContainer"]
+margin_left = 24.0
 margin_right = 228.0
-margin_bottom = 32.0
+margin_bottom = 51.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 text = "Gold"
 valign = 1
 clip_text = true
 
-[node name="PriceLabel" type="Label" parent="HBoxContainer"]
+[node name="PriceLabel" type="Label" parent="Panel/HBoxContainer"]
 margin_left = 232.0
 margin_right = 272.0
-margin_bottom = 32.0
+margin_bottom = 51.0
 rect_min_size = Vector2( 40, 0 )
 size_flags_vertical = 7
 text = "21"
 align = 2
 valign = 1
 
-[node name="QtyLabel" type="Label" parent="HBoxContainer"]
+[node name="QtyLabel" type="Label" parent="Panel/HBoxContainer"]
 margin_left = 276.0
 margin_right = 316.0
-margin_bottom = 32.0
+margin_bottom = 51.0
 rect_min_size = Vector2( 40, 0 )
 size_flags_vertical = 3
 text = "3"
 align = 1
 valign = 1
 
-[node name="HoldLabel" type="Label" parent="HBoxContainer"]
+[node name="HoldLabel" type="Label" parent="Panel/HBoxContainer"]
 margin_left = 320.0
 margin_right = 360.0
-margin_bottom = 32.0
+margin_bottom = 51.0
 rect_min_size = Vector2( 40, 0 )
 size_flags_vertical = 3
 text = "2"
@@ -69,3 +67,4 @@ align = 1
 valign = 1
 
 [connection signal="gui_input" from="." to="." method="_on_TradeItem_gui_input"]
+[connection signal="pressed" from="Panel" to="." method="_on_Panel_pressed"]

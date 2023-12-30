@@ -1,12 +1,21 @@
-[gd_resource type="Theme" load_steps=3 format=2]
+[gd_resource type="Theme" load_steps=5 format=2]
 
-[ext_resource path="res://resources/themes/button_pressed_styleboxtexture.tres" type="StyleBox" id=1]
+[ext_resource path="res://resources/themes/main_theme_assets.png" type="Texture" id=1]
 [ext_resource path="res://resources/themes/button_styleboxtexture.tres" type="StyleBox" id=2]
+[ext_resource path="res://resources/themes/button_pressed_styleboxtexture.tres" type="StyleBox" id=3]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 1 )
+region_rect = Rect2( 35.5049, 633.208, 235.105, 72.3873 )
+margin_left = 23.6553
+margin_right = 24.406
+margin_top = 12.6412
+margin_bottom = 14.7689
 
 [resource]
 Button/constants/hseparation = 2
 Button/styles/disabled = ExtResource( 2 )
-Button/styles/focus = ExtResource( 2 )
 Button/styles/hover = ExtResource( 2 )
 Button/styles/normal = ExtResource( 2 )
-Button/styles/pressed = ExtResource( 1 )
+Button/styles/pressed = ExtResource( 3 )
+Panel/styles/panel = SubResource( 1 )

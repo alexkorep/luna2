@@ -16,13 +16,13 @@ func _ready():
 	update_controls()
 
 func update_controls():
-	if not $HBoxContainer:
+	if not $Panel/HBoxContainer:
 		return
-	$HBoxContainer/ProductLabel.text = product
-	$HBoxContainer/PriceLabel.text = str(price)
-	$HBoxContainer/QtyLabel.text = str(qty)
-	$HBoxContainer/HoldLabel.text = str(hold)
-	$HBoxContainer/BulletPointSpaceHolder/BulletPointTextureRect.visible = selected
+	$Panel/HBoxContainer/ProductLabel.text = product
+	$Panel/HBoxContainer/PriceLabel.text = str(price)
+	$Panel/HBoxContainer/QtyLabel.text = str(qty)
+	$Panel/HBoxContainer/HoldLabel.text = str(hold)
+	$Panel.pressed = selected
 
 func _process(delta):
 	update_controls()
@@ -31,3 +31,7 @@ func _on_TradeItem_gui_input(event):
 	# Detect mouse click
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		emit_signal("trade_item_selected", product_idx)
+
+
+func _on_Panel_pressed():
+	emit_signal("trade_item_selected", product_idx)

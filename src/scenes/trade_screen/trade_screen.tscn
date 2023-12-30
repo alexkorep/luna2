@@ -12,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -208, 441 )
 mouse_filter = 1
+theme = ExtResource( 7 )
 script = ExtResource( 5 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
@@ -128,16 +129,21 @@ margin_bottom = 368.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="TradeItem" parent="NinePatchRect/MarginContainer/MainVBoxContainer/ScrollContainer/ProductsVBoxContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+margin_right = 296.0
+
 [node name="TradeItem2" parent="NinePatchRect/MarginContainer/MainVBoxContainer/ScrollContainer/ProductsVBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
+margin_top = 55.0
 margin_right = 296.0
-product = "Silver"
+margin_bottom = 106.0
 
-[node name="TradeItem1" parent="NinePatchRect/MarginContainer/MainVBoxContainer/ScrollContainer/ProductsVBoxContainer" instance=ExtResource( 2 )]
+[node name="TradeItem3" parent="NinePatchRect/MarginContainer/MainVBoxContainer/ScrollContainer/ProductsVBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
-margin_top = 36.0
+margin_top = 110.0
 margin_right = 296.0
-margin_bottom = 68.0
+margin_bottom = 161.0
 
 [node name="BuySellButtons" parent="NinePatchRect/MarginContainer/MainVBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
