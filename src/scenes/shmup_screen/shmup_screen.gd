@@ -73,5 +73,6 @@ func next_wave():
 	current_formation = formation_scenes[formation_num].instance()
 	current_formation.connect("finished", self, "_on_wave_finished")
 	current_formation.connect("enemy_died", self, "_on_enemy_died")
+	current_formation.set_wave(current_wave)
 	add_child(current_formation)
 	update_wave_label()

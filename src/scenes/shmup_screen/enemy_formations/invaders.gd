@@ -37,3 +37,7 @@ func _on_SpawnTimer_timeout():
 	var ship = ships[ships_spawned]
 	ship.start(spawn_position)
 	ships_spawned += 1
+
+func set_wave(idx):
+	# TODO increase difficulty
+	pass

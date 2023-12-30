@@ -1,6 +1,6 @@
 extends Control
 
-export var asteroid_count := 20
+var asteroid_count := 20
 
 signal finished
 signal enemy_died
@@ -33,3 +33,6 @@ func set_player_pos(_pos):
 
 func on_asteroid_killed():
 	emit_signal("enemy_died")
+
+func set_wave(idx):
+	asteroid_count = 20 + idx * 10
