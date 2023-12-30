@@ -1,14 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/shmup/asteroids/asteroid01.png" type="Texture" id=1]
+[ext_resource path="res://assets/shmup/asteroids/asteroids.png" type="Texture" id=1]
 [ext_resource path="res://scenes/shmup_screen/enemy_formations/asteroids/asteroid.gd" type="Script" id=2]
 [ext_resource path="res://assets/ships/fire03.png" type="Texture" id=3]
-[ext_resource path="res://assets/shmup/asteroids/asteroid04.png" type="Texture" id=4]
-[ext_resource path="res://assets/shmup/asteroids/asteroid02.png" type="Texture" id=5]
-[ext_resource path="res://assets/shmup/asteroids/asteroid03.png" type="Texture" id=6]
+[ext_resource path="res://assets/shmup/asteroids/asteroid-trail-particle.png" type="Texture" id=4]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0.00809717, 1 )
+colors = PoolColorArray( 1, 1, 1, 0.513726, 1, 1, 1, 0 )
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 42.0
+radius = 70.0071
 
 [sub_resource type="Gradient" id=2]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
@@ -16,33 +18,64 @@ colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 [node name="Asteroid" type="Area2D"]
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
-
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 amount = 20
+texture = ExtResource( 4 )
 emission_shape = 2
-emission_rect_extents = Vector2( 40, 1 )
+emission_rect_extents = Vector2( 10, 1 )
 direction = Vector2( 0, -1 )
 spread = 0.0
 gravity = Vector2( 0, 0 )
 initial_velocity = 172.84
+color_ramp = SubResource( 3 )
 
 [node name="Sprites" type="Node2D" parent="."]
 
 [node name="Sprite01" type="Sprite" parent="Sprites"]
 texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 459.488, 820.15, 135.604, 129.967 )
 
 [node name="Sprite02" type="Sprite" parent="Sprites"]
-texture = ExtResource( 5 )
+visible = false
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 20.9334, 758.052, 69.8376, 75.4747 )
 
 [node name="Sprite03" type="Sprite" parent="Sprites"]
-texture = ExtResource( 6 )
+visible = false
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 112.38, 778.095, 39.773, 45.0969 )
 
 [node name="Sprite04" type="Sprite" parent="Sprites"]
-texture = ExtResource( 4 )
+visible = false
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 498.594, 641.545, 105.226, 104.913 )
+
+[node name="Sprite05" type="Sprite" parent="Sprites"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 852.861, 783.652, 44.4705, 43.531 )
+
+[node name="Sprite06" type="Sprite" parent="Sprites"]
+visible = false
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 311.527, 788.656, 25.9934, 27.8724 )
+
+[node name="Sprite07" type="Sprite" parent="Sprites"]
+visible = false
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 275.512, 845.967, 25.9933, 27.246 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+visible = false
 position = Vector2( -0.500002, -0.499996 )
 scale = Vector2( 4.75, 5.25 )
 

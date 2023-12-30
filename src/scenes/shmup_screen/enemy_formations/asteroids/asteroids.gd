@@ -9,7 +9,6 @@ var asteroid_instance := preload("res://scenes/shmup_screen/enemy_formations/ast
 var is_finished = false
 
 func _ready():
-	var screen_size = get_viewport().size
 	for _i in range(asteroid_count):
 		var asteroid := asteroid_instance.instance()
 		asteroid.position = Vector2(

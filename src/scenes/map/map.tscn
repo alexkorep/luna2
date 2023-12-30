@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/map/galaxy.png" type="Texture" id=1]
 [ext_resource path="res://scenes/map/map.gd" type="Script" id=2]
 [ext_resource path="res://scenes/map/planet_details.tscn" type="PackedScene" id=3]
+[ext_resource path="res://resources/themes/main_theme.tres" type="Theme" id=4]
 
 [node name="Map" type="Control"]
 anchor_right = 1.0
@@ -15,20 +16,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="PanelBackButton" type="Panel" parent="VBoxContainer"]
-margin_right = 360.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 0, 32 )
-
-[node name="BackButton" type="Button" parent="VBoxContainer/PanelBackButton"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-text = "Back"
-
 [node name="MapWithPlanets" type="Control" parent="VBoxContainer"]
-margin_top = 36.0
 margin_right = 360.0
-margin_bottom = 576.0
+margin_bottom = 521.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -52,8 +42,15 @@ color = Color( 0, 0, 0, 1 )
 [node name="Planets" type="Node2D" parent="VBoxContainer/MapWithPlanets"]
 
 [node name="PlanetDetails" parent="VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 580.0
-margin_bottom = 720.0
+margin_top = 525.0
+margin_bottom = 665.0
 mouse_filter = 1
 
-[connection signal="pressed" from="VBoxContainer/PanelBackButton/BackButton" to="." method="_on_BackButton_pressed"]
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+margin_top = 669.0
+margin_right = 360.0
+margin_bottom = 720.521
+theme = ExtResource( 4 )
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
