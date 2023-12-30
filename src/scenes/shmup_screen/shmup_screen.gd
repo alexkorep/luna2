@@ -17,7 +17,7 @@ onready var Player = $Player
 onready var WaveLabel = $WaveLabel
 
 var formation_scenes = [
-	preload("res://scenes/shmup_screen/enemy_formations/invaders.tscn"),
+	#preload("res://scenes/shmup_screen/enemy_formations/invaders.tscn"),
 	preload("res://scenes/shmup_screen/enemy_formations/asteroids/asteroids.tscn"),
 	#preload("res://scenes/shmup_screen/enemy_formations/single_ship/single_ship.tscn"),
 ]

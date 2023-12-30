@@ -1,5 +1,7 @@
 extends Area2D
 
+signal asteroid_killed
+
 onready var ExplosionParticles = $ExplosionParticles
 onready var ExplosionTimer = $ExplosionTimer
 onready var Sprite = $Sprite
@@ -21,6 +23,7 @@ func enemy_kill():
 	CollisionShape2D.queue_free()
 	ExplosionParticles.emitting = true
 	ExplosionTimer.start()
+	emit_signal("asteroid_killed")
 	
 func _on_ExplosionTimer_timeout():
 	queue_free()
