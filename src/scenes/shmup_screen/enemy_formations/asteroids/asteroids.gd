@@ -6,6 +6,7 @@ signal finished
 signal enemy_died
 
 var asteroid_instance := preload("res://scenes/shmup_screen/enemy_formations/asteroids/asteroid.tscn")
+var is_finished = false
 
 func _ready():
 	var screen_size = get_viewport().size
@@ -22,8 +23,9 @@ func _ready():
 		add_child(asteroid)
 
 func _process(_delta):
-	if get_child_count() == 0:
+	if get_child_count() == 0 and not is_finished:
 		emit_signal("finished")
+		is_finished = true
 
 func set_player_pos(_pos):
 	# We don't care, we are stones

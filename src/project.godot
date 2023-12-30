@@ -58,7 +58,7 @@ _global_script_class_icons={
 
 config/name="Luna2"
 run/main_scene="res://scenes/intro/intro.tscn"
-config/icon="res://icon2.png"
+config/icon="res://icon.png"
 
 [autoload]
 

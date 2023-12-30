@@ -35,7 +35,6 @@ func set_selected_planet(planet_id):
 	PlanetDetails.planet_id = planet_id
 
 func planet_clicked(planet_id):
-	print("Planet clicked: " + str(planet_id))
 	set_selected_planet(planet_id)
 
 func _on_BackButton_pressed():

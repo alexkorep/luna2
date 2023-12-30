@@ -9,7 +9,7 @@ var progress = 0.0
 # astroclicks persecond
 var speed = 0.01 
 
-export var waves_count = 3
+var waves_count = 3
 var current_wave = 0
 var current_formation = null
 
@@ -23,6 +23,7 @@ var formation_scenes = [
 ]
 
 func _ready():
+	waves_count = int(Travel.get_travel_distance()/10_000) + 1
 	$Background.get_material().set_shader_param("speed_scale", 0.1)
 	current_wave = 0
 	update_wave_label()
@@ -44,7 +45,6 @@ func _on_wave_finished():
 		# End the level
 		Player.end()
 	
-
 func _process(delta):
 	$HUD.progress = progress
 	if is_paused == false:

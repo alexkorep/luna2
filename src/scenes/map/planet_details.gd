@@ -32,6 +32,6 @@ func set_planet_id(id):
 	TravelButton.disabled = current_planet_selected
 
 func _on_Button_pressed():
-	Travel.start_travel(planet_id, 1)
+	Travel.start_travel(planet_id)
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://scenes/shmup_screen/shmup_screen.tscn")

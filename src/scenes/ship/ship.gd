@@ -24,11 +24,6 @@ func emit_ship_submerged():
 func emit_ship_exploded():
 	emit_signal("ship_exploded")
 	
-func on_asteroid_hit(asteroid, body):
-	print("on_asteroid_hit: ", asteroid.name, ', ', body.name)
-	#if asteroid is Asteroid and body == self:
-	#	SpaceshipStateMachine.transition_to("Explode")
-
 func _on_hud_map():
 	if Camera2D.zoom == Vector2(1, 1):
 		Camera2D.zoom = Vector2(20, 20)
