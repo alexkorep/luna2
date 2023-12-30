@@ -8,7 +8,7 @@ signal enemy_died
 var asteroid_instance := preload("res://scenes/shmup_screen/enemy_formations/asteroids/Asteroid.tscn")
 
 func _ready():
-	for i in range(asteroid_count):
+	for _i in range(asteroid_count):
 		var asteroid := asteroid_instance.instance()
 		asteroid.position = Vector2(
 			rand_range(0, get_viewport().size.x - 0), 
@@ -16,7 +16,7 @@ func _ready():
 		asteroid.speed = rand_range(50, 100)
 		add_child(asteroid)
 
-func _process(delta):
+func _process(_delta):
 	if get_child_count() == 0:
 		emit_signal("finished")
 

@@ -18,7 +18,7 @@ func enter(msg := {}) -> void:
 	tween.connect("tween_completed", self, "_on_tween_completed")
 	tween.start()
 
-func _on_tween_completed(object, key):
+func _on_tween_completed(_object, _key):
 	owner.StateMachine.transition_to("Formation")
 
 func exit() -> void:

@@ -18,5 +18,5 @@ func enter(_msg := {}) -> void:
 func exit() -> void:
 	owner.show_ship_trail = false
 
-func _on_tween_completed(object, key):
+func _on_tween_completed(_object, _key):
 	owner.emit_end_animation_finished()

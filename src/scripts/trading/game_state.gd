@@ -31,7 +31,7 @@ func new_game():
 	prices = []
 	planet_quantity = []
 	player_quantity = []
-	for i in range(0, GoodsData.goods.size()):
+	for _i in range(0, GoodsData.goods.size()):
 		prices.append(0)
 		planet_quantity.append(0)
 		player_quantity.append(0)

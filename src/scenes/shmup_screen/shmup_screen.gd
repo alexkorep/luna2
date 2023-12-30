@@ -18,7 +18,7 @@ onready var WaveLabel = $WaveLabel
 
 var formation_scenes = [
 	preload("res://scenes/shmup_screen/enemy_formations/invaders.tscn"),
-	#preload("res://scenes/shmup_screen/enemy_formations/asteroids/asteroids.tscn"),
+	preload("res://scenes/shmup_screen/enemy_formations/asteroids/asteroids.tscn"),
 	#preload("res://scenes/shmup_screen/enemy_formations/single_ship/single_ship.tscn"),
 ]
 
@@ -67,7 +67,6 @@ func _on_Player_player_ready():
 	next_wave()
 
 func next_wave():
-
 	if current_formation != null:
 		current_formation.queue_free()
 	var formation_num = randi() % formation_scenes.size()
