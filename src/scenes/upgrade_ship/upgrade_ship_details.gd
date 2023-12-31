@@ -12,6 +12,7 @@ export var is_current = false
 export var is_owned = false
 
 func _process(delta):
+	get_node("%ShipSprite").ship_id = ship_id
 	get_node("%NameLabel").text = ship_name
 	get_node("%CargoSizeLabel").text = str(cargo_size) + 't'
 	get_node("%TravelDistanceLabel").text = str(travel_distance) + 'ly'

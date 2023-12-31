@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/ship/ship_sprite.gd" type="Script" id=1]
+[ext_resource path="res://assets/ships/spaceships03.png" type="Texture" id=2]
+
+[node name="ShipSprite" type="Node2D"]
+script = ExtResource( 1 )
+ship_id = "t7x"
+
+[node name="xq5" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 308.844, 347.353, 143.854, 178.696 )
+
+[node name="nebula2" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 891.674, 360.118, 65.7766, 155.652 )
+
+[node name="rz9titan" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 101.127, 328.817, 86.1125, 193.256 )
+
+[node name="t7x" type="Sprite" parent="."]
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 70.6968, 103.053, 78.1549, 147.215 )
+
+[node name="u4pq8" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 576.971, 94.896, 113.964, 152.047 )
+
+[node name="vx3" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 681.828, 529.158, 101.744, 159.436 )
+
+[node name="fj6" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 876.471, 690.177, 86.6251, 202.372 )
+
+[node name="dqz1" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 151.069, 709.24, 83.4951, 164.172 )
+
+[node name="wp45" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 245.066, 715.575, 79.0315, 158.603 )

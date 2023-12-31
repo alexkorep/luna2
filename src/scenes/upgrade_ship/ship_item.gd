@@ -13,6 +13,7 @@ func _ready():
 	NameLabel.text = ship_name
 	
 func _process(delta):
+	get_node("%ShipSprite").ship_id = ship_id
 	get_node("%SelectedTexture").visible = is_selected
 	get_node("%Light2D").visible = is_selected
 	var ship = ShipModels.get_ship_by_id(ship_id)
