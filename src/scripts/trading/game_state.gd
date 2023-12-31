@@ -168,3 +168,9 @@ func is_ship_owned(ship_id):
 func set_selected_ship_id(id):
 	current_ship_id = id
 	save_game()
+
+func can_travel(planet_id1, planet_id2):
+	var distance = PlanetLocations.get_distance(planet_id1, planet_id2)
+	var ship_model = ShipModels.get_ship_by_id(current_ship_id)
+	var travel_distance = ship_model["travel_distance"]
+	return travel_distance >= distance

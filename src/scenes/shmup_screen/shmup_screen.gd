@@ -76,3 +76,7 @@ func next_wave():
 	current_formation.set_wave(current_wave)
 	add_child(current_formation)
 	update_wave_label()
+
+
+func _on_ExitButton_pressed():
+	get_tree().change_scene("res://scenes/planet_screen/panet_screen.tscn")

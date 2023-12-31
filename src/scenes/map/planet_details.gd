@@ -29,7 +29,7 @@ func set_planet_id(id):
 	else:
 		var distance = PlanetLocations.get_distance(current_planet_id, planet_id)
 		DistancesLabel.text = str(distance) + ' ly'
-	TravelButton.disabled = current_planet_selected
+	TravelButton.disabled = current_planet_selected or not GameState.can_travel(current_planet_id, planet_id)
 
 func _on_Button_pressed():
 	Travel.start_travel(planet_id)

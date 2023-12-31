@@ -53,6 +53,12 @@ mouse_filter = 1
 
 [node name="EnemyFormations" type="Node2D" parent="."]
 
+[node name="ExitButton" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 20.0
+text = "Exit"
+
 [connection signal="end_animation_finished" from="Player" to="." method="_on_Player_end_animation_finished"]
 [connection signal="player_ready" from="Player" to="." method="_on_Player_player_ready"]
 [connection signal="ship_exploded" from="Player" to="." method="_on_Player_ship_exploded"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
