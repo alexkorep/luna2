@@ -5,6 +5,7 @@ var WIN_FUNDS = 10_000_000
 var funds := 0
 var planet_id: String = ""
 var current_ship_id = 'xq5'
+var owned_ships = ['xq5']
 
 var price_vadiance = 0.05
 
@@ -103,7 +104,8 @@ func save_game():
 			"planet_id": planet_id,
 			"prices": prices,
 			"planet_quantity": planet_quantity,
-			"player_quantity": player_quantity
+			"player_quantity": player_quantity,
+			"owned_ships": owned_ships
 	}
 	var save_file = File.new()
 	save_file.open(savegame_filename, File.WRITE)
@@ -124,6 +126,7 @@ func load_game():
 	prices = save_dict["prices"]
 	planet_quantity = save_dict["planet_quantity"]
 	player_quantity = save_dict["player_quantity"]
+	owned_ships = save_dict["owned_ships"] if "owned_ships" in save_dict else ['xq5']
 
 	save_file.close()
 
@@ -153,3 +156,6 @@ func buy_ship(ship_id):
 	GameState.funds -= price
 	current_ship_id = ship_id
 	return true
+
+func is_ship_owned(ship_id):
+	return ship_id in owned_ships

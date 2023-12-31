@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/item01.png-9b672657ed2d8e839a757147e4011d0e.stex"
+path="res://.import/item-indicator-yellow.png-f221bb2121633abf847a1ff2fe65ecc3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/item01.png"
-dest_files=[ "res://.import/item01.png-9b672657ed2d8e839a757147e4011d0e.stex" ]
+source_file="res://assets/ui/ship_item/item-indicator-yellow.png"
+dest_files=[ "res://.import/item-indicator-yellow.png-f221bb2121633abf847a1ff2fe65ecc3.stex" ]
 
 [params]
 

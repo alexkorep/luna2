@@ -2,6 +2,7 @@ extends Control
 
 var ship_item = preload("res://scenes/upgrade_ship/ship_item.tscn")
 onready var ShipItemsGridContainer = get_node("%ShipItemsGridContainer")
+var selected_ship_id = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +18,10 @@ func _ready():
 		
 	_on_ship_selected(GameState.current_ship_id)
 
+func update_selected_item():
+	for item in ShipItemsGridContainer.get_children():
+		item.is_selected = selected_ship_id == item.ship_id
+
 func _on_ship_selected(ship_id):
 	var details = get_node("%UpgradeShipDetails")
 	var ship = ShipModels.get_ship_by_id(ship_id)
@@ -26,6 +31,8 @@ func _on_ship_selected(ship_id):
 	details.cargo_size = ship["cargo_size"]
 	details.price = ship["price"]
 	details.is_current = ship_id == GameState.current_ship_id
+	selected_ship_id = ship_id
+	update_selected_item()
 
 func _on_UpgradeShipDetails_buy(ship_id):
 	GameState.buy_ship(ship_id)
