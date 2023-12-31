@@ -105,7 +105,8 @@ func save_game():
 			"prices": prices,
 			"planet_quantity": planet_quantity,
 			"player_quantity": player_quantity,
-			"owned_ships": owned_ships
+			"owned_ships": owned_ships,
+			"current_ship_id": current_ship_id
 	}
 	var save_file = File.new()
 	save_file.open(savegame_filename, File.WRITE)
@@ -127,6 +128,7 @@ func load_game():
 	planet_quantity = save_dict["planet_quantity"]
 	player_quantity = save_dict["player_quantity"]
 	owned_ships = save_dict["owned_ships"] if "owned_ships" in save_dict else ['xq5']
+	current_ship_id = save_dict["current_ship_id"] if "current_ship_id" in save_dict  else 'xq5'
 
 	save_file.close()
 
@@ -162,3 +164,7 @@ func buy_ship(ship_id):
 
 func is_ship_owned(ship_id):
 	return ship_id in owned_ships
+
+func set_selected_ship_id(id):
+	current_ship_id = id
+	save_game()

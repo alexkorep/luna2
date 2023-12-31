@@ -14,6 +14,9 @@ onready var Ship = $Ship
 onready var TouchStartSprite = $TouchStartSprite
 onready var Camera2D = $Camera2D
 
+func _ready():
+	get_node("%ShipSprite").ship_id = GameState.current_ship_id
+
 func teleport_to_the_planet():
 	if SpaceshipStateMachine.state and SpaceshipStateMachine.state.name  != "Submerge":
 		SpaceshipStateMachine.transition_to("Submerge")

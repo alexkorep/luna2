@@ -39,5 +39,5 @@ func _on_UpgradeShipDetails_buy(ship_id):
 	_on_ship_selected(ship_id)
 
 func _on_UpgradeShipDetails_activate(ship_id):
-	GameState.current_ship_id = ship_id
+	GameState.set_selected_ship_id(ship_id)
 	_on_ship_selected(ship_id)
