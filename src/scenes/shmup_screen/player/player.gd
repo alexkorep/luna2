@@ -44,7 +44,7 @@ func emit_player_ready():
 func set_show_ship_trail(value):
 	show_ship_trail = value
 	if value:
-		ShipTrailParticles.texture = ShipSprite.texture
+		ShipTrailParticles.texture = ShipSprite.get_texture()
 		ShipTrailParticles.emitting = true
 	else:
 		ShipTrailParticles.emitting = false

@@ -1,15 +1,16 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/shmup_screen/player/player_state_machine.gd" type="Script" id=1]
 [ext_resource path="res://assets/ships/fire02.png" type="Texture" id=2]
 [ext_resource path="res://assets/ships/fire03.png" type="Texture" id=3]
-[ext_resource path="res://assets/ships/player-ship01.png" type="Texture" id=4]
+[ext_resource path="res://assets/shmup/asteroids/asteroid-trail-particle.png" type="Texture" id=4]
 [ext_resource path="res://scenes/shmup_screen/player/state_end.gd" type="Script" id=5]
 [ext_resource path="res://scenes/shmup_screen/player/state_main.gd" type="Script" id=6]
 [ext_resource path="res://scenes/shmup_screen/player/state_explode.gd" type="Script" id=7]
 [ext_resource path="res://scenes/shmup_screen/player/state_start.gd" type="Script" id=8]
 [ext_resource path="res://scenes/shmup_screen/player/player.gd" type="Script" id=9]
 [ext_resource path="res://assets/ui/bullet-point.png" type="Texture" id=10]
+[ext_resource path="res://scenes/ship/ship_sprite.tscn" type="PackedScene" id=11]
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 30.0666
@@ -30,6 +31,7 @@ shape = SubResource( 4 )
 [node name="Ship" type="Node2D" parent="."]
 
 [node name="EngineParticles1" type="CPUParticles2D" parent="Ship"]
+visible = false
 position = Vector2( -36, 30 )
 scale = Vector2( 0.5, 0.5 )
 local_coords = false
@@ -43,9 +45,9 @@ scale_amount_random = 0.2
 color_ramp = SubResource( 1 )
 
 [node name="EngineParticles2" type="CPUParticles2D" parent="Ship"]
+visible = false
 position = Vector2( 36, 32 )
 scale = Vector2( 0.5, 0.5 )
-local_coords = false
 texture = ExtResource( 2 )
 direction = Vector2( 0, 1 )
 spread = 0.0
@@ -68,10 +70,7 @@ scale_amount = 0.2
 scale_amount_random = 0.2
 color_ramp = SubResource( 1 )
 
-[node name="ShipSprite" type="Sprite" parent="Ship"]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
-region_rect = Rect2( 3.08962, 467.687, 168.595, 151.336 )
+[node name="ShipSprite" parent="Ship" instance=ExtResource( 11 )]
 
 [node name="GunPosition" type="Node2D" parent="Ship"]
 position = Vector2( 0, -53 )
