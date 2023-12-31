@@ -14,6 +14,7 @@ func _ready():
 	
 func _process(delta):
 	get_node("%SelectedTexture").visible = is_selected
+	get_node("%Light2D").visible = is_selected
 	var ship = ShipModels.get_ship_by_id(ship_id)
 	var ship_is_owned = GameState.is_ship_owned(ship_id)
 	# Green - current

@@ -139,7 +139,7 @@ func load_game():
 	return true
 
 func can_buy_ship(ship_id):
-	if ship_id == current_ship_id:
+	if is_ship_owned(ship_id):
 		return false
 	
 	var ship_model = ShipModels.get_ship_by_id(ship_id)
@@ -155,6 +155,9 @@ func buy_ship(ship_id):
 	var price = ship_model["price"]
 	GameState.funds -= price
 	current_ship_id = ship_id
+	owned_ships.append(ship_id)
+	save_game()
+	print("owned_ships", owned_ships)
 	return true
 
 func is_ship_owned(ship_id):

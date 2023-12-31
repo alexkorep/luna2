@@ -110,4 +110,5 @@ margin_bottom = 458.0
 [node name="UpgradeShipDetails" parent="VBoxContainer" instance=ExtResource( 3 )]
 unique_name_in_owner = true
 
+[connection signal="activate" from="VBoxContainer/UpgradeShipDetails" to="." method="_on_UpgradeShipDetails_activate"]
 [connection signal="buy" from="VBoxContainer/UpgradeShipDetails" to="." method="_on_UpgradeShipDetails_buy"]
