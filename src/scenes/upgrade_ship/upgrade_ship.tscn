@@ -1,0 +1,113 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/upgrade_ship/ship_item.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/upgrade_ship/upgrade_ship.gd" type="Script" id=2]
+[ext_resource path="res://scenes/upgrade_ship/upgrade_ship_details.tscn" type="PackedScene" id=3]
+
+[node name="UpgradeShip" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TopPanel" type="Panel" parent="VBoxContainer"]
+margin_right = 360.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 0, 16 )
+size_flags_horizontal = 3
+
+[node name="ShipListPanel" type="Panel" parent="VBoxContainer"]
+margin_top = 20.0
+margin_right = 360.0
+margin_bottom = 596.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/ShipListPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_right = -24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+
+[node name="ShipItemsGridContainer" type="GridContainer" parent="VBoxContainer/ShipListPanel/ScrollContainer"]
+unique_name_in_owner = true
+margin_right = 308.0
+margin_bottom = 458.0
+columns = 3
+
+[node name="ShipItem01" parent="VBoxContainer/ShipListPanel/ScrollContainer/ShipItemsGridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 100.0
+margin_bottom = 150.0
+
+[node name="ShipItem02" parent="VBoxContainer/ShipListPanel/ScrollContainer/ShipItemsGridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 104.0
+margin_right = 204.0
+margin_bottom = 150.0
+
+[node name="ShipItem03" parent="VBoxContainer/ShipListPanel/ScrollContainer/ShipItemsGridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 208.0
+margin_right = 308.0
+margin_bottom = 150.0
+
+[node name="ShipItem04" parent="VBoxContainer/ShipListPanel/ScrollContainer/ShipItemsGridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 154.0
+margin_right = 100.0
+margin_bottom = 304.0
+
+[node name="ShipItem05" parent="VBoxContainer/ShipListPanel/ScrollContainer/ShipItemsGridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 104.0
+margin_top = 154.0
+margin_right = 204.0
+margin_bottom = 304.0
+
+[node name="ShipItem06" parent="VBoxContainer/ShipListPanel/ScrollContainer/ShipItemsGridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 208.0
+margin_top = 154.0
+margin_right = 308.0
+margin_bottom = 304.0
+
+[node name="ShipItem07" parent="VBoxContainer/ShipListPanel/ScrollContainer/ShipItemsGridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 308.0
+margin_right = 100.0
+margin_bottom = 458.0
+
+[node name="ShipItem08" parent="VBoxContainer/ShipListPanel/ScrollContainer/ShipItemsGridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 104.0
+margin_top = 308.0
+margin_right = 204.0
+margin_bottom = 458.0
+
+[node name="ShipItem09" parent="VBoxContainer/ShipListPanel/ScrollContainer/ShipItemsGridContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 208.0
+margin_top = 308.0
+margin_right = 308.0
+margin_bottom = 458.0
+
+[node name="UpgradeShipDetails" parent="VBoxContainer" instance=ExtResource( 3 )]
+unique_name_in_owner = true
+
+[connection signal="buy" from="VBoxContainer/UpgradeShipDetails" to="." method="_on_UpgradeShipDetails_buy"]

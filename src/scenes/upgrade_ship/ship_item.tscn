@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/ships/spaceships03.png" type="Texture" id=1]
+[ext_resource path="res://assets/ui/item01.png" type="Texture" id=2]
+[ext_resource path="res://scenes/upgrade_ship/ship_item.gd" type="Script" id=3]
+
+[node name="ShipItem" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -260.0
+margin_bottom = -570.0
+rect_min_size = Vector2( 100, 150 )
+script = ExtResource( 3 )
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+margin_right = 100.0
+margin_bottom = 150.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="ShipSprite" type="Sprite" parent="."]
+position = Vector2( 51, 60 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 308.844, 347.353, 143.854, 178.696 )
+
+[node name="NameLabel" type="Label" parent="."]
+unique_name_in_owner = true
+margin_top = 117.0
+margin_right = 100.0
+margin_bottom = 131.0
+text = "Black Hawk"
+align = 1
+
+[connection signal="gui_input" from="." to="." method="_on_ShipItem_gui_input"]

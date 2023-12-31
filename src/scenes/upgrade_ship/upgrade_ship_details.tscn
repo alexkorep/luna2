@@ -1,0 +1,119 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://resources/themes/main_theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/ships/spaceships03.png" type="Texture" id=2]
+[ext_resource path="res://scenes/upgrade_ship/upgrade_ship_details.gd" type="Script" id=3]
+
+[node name="UpgradeShipDetails" type="Panel"]
+margin_top = 600.0
+margin_right = 360.0
+margin_bottom = 720.0
+rect_min_size = Vector2( 0, 120 )
+size_flags_horizontal = 3
+script = ExtResource( 3 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ShipImagePanel" type="Panel" parent="HBoxContainer"]
+margin_right = 120.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 0 )
+theme = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="HBoxContainer/ShipImagePanel"]
+position = Vector2( 59, 62 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 583.711, 367.117, 95.9733, 153.343 )
+
+[node name="ButtonsPanel" type="Panel" parent="HBoxContainer"]
+margin_left = 124.0
+margin_right = 240.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ButtonsPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="BuyButton" type="Button" parent="HBoxContainer/ButtonsPanel/VBoxContainer"]
+margin_right = 116.0
+margin_bottom = 51.5205
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Buy"
+
+[node name="BackButton" type="Button" parent="HBoxContainer/ButtonsPanel/VBoxContainer"]
+margin_top = 55.0
+margin_right = 116.0
+margin_bottom = 106.521
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "BACK"
+
+[node name="ShipDetailsPanel" type="Panel" parent="HBoxContainer"]
+margin_left = 244.0
+margin_right = 360.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/ShipDetailsPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -8.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ShipDetailsPanel/MarginContainer"]
+margin_right = 104.0
+margin_bottom = 116.0
+
+[node name="NameLabel" type="Label" parent="HBoxContainer/ShipDetailsPanel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_right = 104.0
+margin_bottom = 14.0
+text = "name"
+align = 1
+uppercase = true
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/ShipDetailsPanel/MarginContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 104.0
+margin_bottom = 22.0
+
+[node name="CargoSizeLabel" type="Label" parent="HBoxContainer/ShipDetailsPanel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 26.0
+margin_right = 104.0
+margin_bottom = 40.0
+text = "12 t"
+
+[node name="TravelDistanceLabel" type="Label" parent="HBoxContainer/ShipDetailsPanel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 44.0
+margin_right = 104.0
+margin_bottom = 58.0
+text = "120000 ly"
+
+[node name="PriceLabel" type="Label" parent="HBoxContainer/ShipDetailsPanel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 62.0
+margin_right = 104.0
+margin_bottom = 76.0
+text = "12000 cr"
+
+[node name="IsCurrentLabel" type="Label" parent="HBoxContainer/ShipDetailsPanel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 80.0
+margin_right = 104.0
+margin_bottom = 111.0
+text = "You already own this ship"
+autowrap = true
+
+[connection signal="pressed" from="HBoxContainer/ButtonsPanel/VBoxContainer/BuyButton" to="." method="_on_BuyButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonsPanel/VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]

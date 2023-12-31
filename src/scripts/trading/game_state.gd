@@ -4,6 +4,7 @@ var WIN_FUNDS = 10_000_000
 
 var funds := 0
 var planet_id: String = ""
+var current_ship_id = 'xq5'
 
 var price_vadiance = 0.05
 
@@ -132,4 +133,25 @@ func load_game():
 		len(planet_quantity) != good_count or 
 		len(player_quantity) != good_count):
 		return false
+	return true
+
+func can_buy_ship(ship_id):
+	if ship_id == current_ship_id:
+		return false
+	
+	var ship_models = ShipModels.ship_models
+	var ship_model = ship_models[ship_id]
+	var price = ship_model["price"]
+	if price > GameState.funds:
+		return false
+	return true
+
+func buy_ship(ship_id):
+	if not can_buy_ship(ship_id):
+		return false
+	var ship_models = ShipModels.ship_models
+	var ship_model = ship_models[ship_id]
+	var price = ship_model["price"]
+	GameState.funds -= price
+	current_ship_id = ship_id
 	return true

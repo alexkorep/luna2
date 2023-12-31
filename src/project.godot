@@ -67,6 +67,7 @@ GoodsData="*res://scripts/trading/goods_data.gd"
 GameState="*res://scripts/trading/game_state.gd"
 Travel="*res://scripts/travel/travel.gd"
 PlanetLocations="*res://scripts/trading/planet_locations.gd"
+ShipModels="*res://scripts/upgrades/ship_models.gd"
 
 [display]
 
