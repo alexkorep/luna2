@@ -19,16 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/shmup_screen/player/player_state_machine.gd"
 }, {
-"base": "KinematicBody2D",
-"class": "Spaceship",
-"language": "GDScript",
-"path": "res://scenes/ship/ship.gd"
-}, {
-"base": "StateMachine",
-"class": "SpaceshipStateMachine",
-"language": "GDScript",
-"path": "res://scenes/ship/spaceship_state_machine.gd"
-}, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
@@ -38,20 +28,12 @@ _global_script_classes=[ {
 "class": "StateMachine",
 "language": "GDScript",
 "path": "res://scripts/state_machine/state_machine.gd"
-}, {
-"base": "Control",
-"class": "VirtualJoystick",
-"language": "GDScript",
-"path": "res://scenes/joystick/virtual_joystick.gd"
 } ]
 _global_script_class_icons={
 "EnemyStateMachine": "",
 "PlayerStateMachine": "",
-"Spaceship": "",
-"SpaceshipStateMachine": "",
 "State": "",
-"StateMachine": "",
-"VirtualJoystick": ""
+"StateMachine": ""
 }
 
 [application]
