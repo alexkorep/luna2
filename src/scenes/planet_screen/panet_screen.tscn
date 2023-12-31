@@ -149,3 +149,4 @@ autoplay = true
 [connection signal="pressed" from="NinePatchRect/MarginContainer/MainVBoxContainer/RetireButton" to="." method="_on_RetireButton_pressed"]
 [connection signal="pressed" from="NinePatchRect/MarginContainer/MainVBoxContainer/TradeButton" to="." method="_on_TradeButton_pressed"]
 [connection signal="pressed" from="NinePatchRect/MarginContainer/MainVBoxContainer/MapButton" to="." method="_on_MapButton_pressed"]
+[connection signal="pressed" from="NinePatchRect/MarginContainer/MainVBoxContainer/UpgradeButton" to="." method="_on_UpgradeButton_pressed"]

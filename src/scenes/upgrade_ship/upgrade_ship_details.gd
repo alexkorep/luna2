@@ -22,4 +22,4 @@ func _on_BuyButton_pressed():
 	emit_signal("buy", ship_id)
 
 func _on_BackButton_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://scenes/planet_screen/panet_screen.tscn")

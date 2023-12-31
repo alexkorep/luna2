@@ -14,6 +14,8 @@ func _ready():
 		ship_item_instance.ship_id = ship_model["id"]
 		ship_item_instance.connect("ship_selected", self, "_on_ship_selected")
 		ShipItemsGridContainer.add_child(ship_item_instance)
+		
+	_on_ship_selected(GameState.current_ship_id)
 
 func _on_ship_selected(ship_id):
 	var details = get_node("%UpgradeShipDetails")
@@ -24,3 +26,6 @@ func _on_ship_selected(ship_id):
 	details.cargo_size = ship["cargo_size"]
 	details.price = ship["price"]
 	details.is_current = ship_id == GameState.current_ship_id
+
+func _on_UpgradeShipDetails_buy(ship_id):
+	GameState.buy_ship(ship_id)

@@ -139,8 +139,7 @@ func can_buy_ship(ship_id):
 	if ship_id == current_ship_id:
 		return false
 	
-	var ship_models = ShipModels.ship_models
-	var ship_model = ship_models[ship_id]
+	var ship_model = ShipModels.get_ship_by_id(ship_id)
 	var price = ship_model["price"]
 	if price > GameState.funds:
 		return false
@@ -149,8 +148,7 @@ func can_buy_ship(ship_id):
 func buy_ship(ship_id):
 	if not can_buy_ship(ship_id):
 		return false
-	var ship_models = ShipModels.ship_models
-	var ship_model = ship_models[ship_id]
+	var ship_model = ShipModels.get_ship_by_id(ship_id)
 	var price = ship_model["price"]
 	GameState.funds -= price
 	current_ship_id = ship_id

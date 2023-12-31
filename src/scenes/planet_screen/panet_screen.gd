@@ -31,3 +31,6 @@ func _on_TradeButton_pressed():
 
 func _on_RetireButton_pressed():
 	get_tree().change_scene("res://scenes/ending-win/ending-win.tscn")
+
+func _on_UpgradeButton_pressed():
+	get_tree().change_scene("res://scenes/upgrade_ship/upgrade_ship.tscn")
