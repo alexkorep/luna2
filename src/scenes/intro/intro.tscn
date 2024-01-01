@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://resources/themes/main_theme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/intro/luna2-intro.png" type="Texture" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://assets/intro/spaceship-rusty.png" type="Texture" id=6]
 [ext_resource path="res://assets/intro/house-interior.png" type="Texture" id=7]
 [ext_resource path="res://assets/ui/nine-patch-with-header.png" type="Texture" id=9]
-[ext_resource path="res://assets/music/music-ambient-02.wav" type="AudioStream" id=12]
 
 [node name="Intro" type="Control"]
 anchor_right = 1.0
@@ -164,10 +163,6 @@ text = "New game"
 [node name="Timer" type="Timer" parent="."]
 wait_time = 7.0
 autostart = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 12 )
-autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_pressed"]
